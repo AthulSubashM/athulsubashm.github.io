@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pass</title>
+        <link type="text/css" rel="stylesheet" href="idpass.css"/>
+
+        <link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+    </head>
+    <body>
+        <div class="banner">
+            <h1>ID Cards</h1>
+            <img src="IMG/IDpass/settings.png"  onclick="fullscreenPage()" style="cursor: pointer;" alt="settings">
+        </div>
+        <div class="content">
+            <div class="logo">
+                <h2>Transit Pass 2025/2026</h2>
+                <img src="IMG/IDpass/logo.png"alt="logo">
+            </div>
+            <div class="white">
+                <div class="text">
+                    <h3>Shreyya Kesaven</h3>
+                    <h4>Expiration</h4>
+                    <p>Sep 01, 2026</p>
+                </div>
+                <div class="photo">
+                    <img src="IMG/IDpass/photo2.png" alt="photo">
+                    <h3>TRANSIT PASS</h3>
+                </div>
+            </div>
+            <div class="bottom">
+                <video src="IMG/IDpass/idvid.mp4" autoplay loop muted playsinline></video>
+                <p id="date"></p>
+                <p id="time"></p>
+            </div>
+        </div>
+                    <div class="options">
+                <img src="IMG/IDpass/options.png" alt="options">
+            </div>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+
+    // Format the date
+    const date = now.toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+
+    // Format the time
+    const time = now.toLocaleTimeString([], {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false
+});
+
+    // Update HTML elements
+    document.getElementById('date').textContent = date;
+    document.getElementById('time').textContent = time;
+  }
+
+  updateDateTime(); // Run once on load
+  setInterval(updateDateTime, 1000); // Update every second
+
+function fullscreenPage() {
+    const el = document.documentElement;
+
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) { // Safari on iOS
+      el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen();
+    } else {
+      alert("Fullscreen not supported on this device or browser.");
+    }
+  
+  }
+</script>
+
+    </body>
+</html>

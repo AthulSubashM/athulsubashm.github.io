@@ -1,7 +1,7 @@
 {
   "name": "IDpass",
   "short_name": "ID",
-  "start_url": "/idpass.html",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff"
