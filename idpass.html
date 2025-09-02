@@ -8,18 +8,18 @@
     <body>
         <div class="banner">
             <h1>ID Cards</h1>
-            <img src="IMG/IDpass/settings.png" alt="settings">
+            <img src="IMG/IDpass/settings.png"  onclick="fullscreenPage()" style="cursor: pointer;" alt="settings">
         </div>
         <div class="content">
             <div class="logo">
                 <h2>Transit Pass 2025/2026</h2>
-                <img src="IMG/IDpass/logo.png" alt="logo">
+                <img src="IMG/IDpass/logo.png"alt="logo">
             </div>
             <div class="white">
                 <div class="text">
                     <h3>Athul Subash Marottikkal</h3>
                     <h4>Expiration</h4>
-                    <p>Sep 01, 2025</p>
+                    <p>Sep 01, 2026</p>
                 </div>
                 <div class="photo">
                     <img src="IMG/IDpass/photo1.jpg" alt="photo">
@@ -53,6 +53,19 @@
 
   updateDateTime(); // Run once on load
   setInterval(updateDateTime, 1000); // Update every second
+
+function fullscreenPage() {
+    const docEl = document.documentElement;
+
+    if (docEl.requestFullscreen) {
+      docEl.requestFullscreen();
+    } else if (docEl.webkitRequestFullscreen) { // Safari
+      docEl.webkitRequestFullscreen();
+    } else if (docEl.msRequestFullscreen) { // IE11
+      docEl.msRequestFullscreen();
+    }
+  
+  }
 </script>
 
     </body>
