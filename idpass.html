@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pass</title>
+        <link type="text/css" rel="stylesheet" href="idpass.css"/>
+    </head>
+    <body>
+        <div class="banner">
+            <h1>ID Cards</h1>
+            <img src="IMG/IDpass/settings.png" alt="settings">
+        </div>
+        <div class="content">
+            <div class="logo">
+                <h2>Transit Pass 2025/2026</h2>
+                <img src="IMG/IDpass/logo.png" alt="logo">
+            </div>
+            <div class="white">
+                <div class="text">
+                    <h3>Athul Subash Marottikkal</h3>
+                    <h4>Expiration</h4>
+                    <p>Sep 01, 2025</p>
+                </div>
+                <div class="photo">
+                    <img src="IMG/IDpass/photo1.jpg" alt="photo">
+            </div>
+            </div class="bottom">
+            <div class="date-time">
+                <p id="date"></p>
+                <p id="time"></p>
+            </div>
+        </div>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+
+    // Format the date
+    const date = now.toLocaleDateString(undefined, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    // Format the time
+    const time = now.toLocaleTimeString();
+
+    // Update HTML elements
+    document.getElementById('date').textContent = date;
+    document.getElementById('time').textContent = time;
+  }
+
+  updateDateTime(); // Run once on load
+  setInterval(updateDateTime, 1000); // Update every second
+</script>
+
+    </body>
+</html>
