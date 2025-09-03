@@ -118,7 +118,8 @@ p{
     height: 39px;
     text-align: start;
     margin-left: 0.5em;
-    
+    outline: 4px solid #12991d;
+outline-offset: -1px;
 }
 .options{
         display: flex;
