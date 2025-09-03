@@ -1,3 +1,9 @@
+
+
+html {
+  font-size: 16px;
+}
+
 body{
     background-color: black;
 
@@ -33,12 +39,13 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 5em;
 }
 .logo h2{
     color: white;
     font-weight: bold;
-    font-size: 1.15em;
-    padding: 0 0.5em;
+    font-size: 1.3em;
+    padding: 0.5em;
 }
 
 .logo img{
@@ -49,21 +56,21 @@ h1{
 
 h3{
     color: black;
-    font-size: 1em;
+    font-size: 1.2em;
     padding: 1em 0.5em;
     margin: 0;
 }
 
 h4{
     color: black;
-    font-size: 0.9em;
+    font-size: 1.1em;
     padding: 0 0.5em;
     margin: 0;
 }
 
 p{
     color: black;
-    font-size: 0.8em;
+    font-size: 1em;
     padding: 0 0.5em;
     margin: 0;
 }
@@ -80,6 +87,7 @@ p{
      background-color: white;
     padding: 0.2em;
     margin: 0;
+    font-size: 1em;
     
 }
 
@@ -94,18 +102,20 @@ p{
     height: 5em;
     align-items: center;
     justify-content: center;
+    
+    
 }
 
 .bottom p{
     color: white;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: bold;
     padding: 1em 0.5em;
     margin: 0;
 }
 
 .bottom video{
-    height: 1.8em;
+    height: 36px;
     text-align: start;
     margin-left: 0.5em;
 }
