@@ -44,7 +44,7 @@ h1{
 .logo h2{
     color: white;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.25em;
     padding: 0.5em;
 }
 
@@ -56,21 +56,21 @@ h1{
 
 h3{
     color: black;
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 1em 0.5em;
     margin: 0;
 }
 
 h4{
     color: black;
-    font-size: 1.1em;
+    font-size: 1em;
     padding: 0 0.5em;
     margin: 0;
 }
 
 p{
     color: black;
-    font-size: 1em;
+    font-size: 0.9em;
     padding: 0 0.5em;
     margin: 0;
 }
@@ -108,14 +108,14 @@ p{
 
 .bottom p{
     color: white;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: bold;
     padding: 1em 0.5em;
     margin: 0;
 }
 
 .bottom video{
-    height: 39px;
+    height: 32px;
     text-align: start;
     margin-left: 0.5em;
     outline: 4px solid #12991d;
