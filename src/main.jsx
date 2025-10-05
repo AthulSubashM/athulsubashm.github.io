@@ -7,8 +7,4 @@ import bg from "./assets/stars_background.jpg";
 
 document.documentElement.style.setProperty("--global-bg", `url(${bg})`);
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+createRoot(document.getElementById("root")).render(<App />);
