@@ -1,4 +1,4 @@
-import "./stars.module.css";
+import styles from "./stars.module.css";
 
 export default function TwinklingStars() {
   const stars = Array.from({ length: 100 }); // 50 twinkling stars
@@ -13,7 +13,7 @@ export default function TwinklingStars() {
         return (
           <div
             key={i}
-            className="star-twinkle"
+            className={styles["star-twinkle"]}
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
