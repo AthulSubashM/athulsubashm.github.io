@@ -1,0 +1,11 @@
+@import "./reset.css";
+@import "./theme.css";
+
+h1,
+h2 {
+  color: white;
+}
+
+.hero-text {
+  max-width: fit-content;
+}

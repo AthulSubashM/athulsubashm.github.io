@@ -1,4 +1,3 @@
-// IconSphereGPUBillboard.js
 import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { CanvasTexture, DoubleSide } from "three";

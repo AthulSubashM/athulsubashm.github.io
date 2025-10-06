@@ -1,5 +1,5 @@
 .star-twinkle {
-  position: absolute;
+  position: fixed;
   background: white;
   border-radius: 50%;
   opacity: 0;
