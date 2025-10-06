@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../CSS/stars.css";
+import "./stars.module.css";
 
 export default function ShootingStars() {
   const [stars, setStars] = useState([]);

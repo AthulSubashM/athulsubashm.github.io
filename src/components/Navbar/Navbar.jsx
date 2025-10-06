@@ -1,6 +1,5 @@
 // src/components/Navbar.jsx
 import React from "react";
-import "../index.css";
 
 export default function Navbar() {
   return (

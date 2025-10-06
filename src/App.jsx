@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "./index.css";
+import "./CSS/index.css";
 
-import TwinklingStars from "./components/TwinklingStars";
-import ShootingStars from "./components/ShootingStars";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import TwinklingStars from "./components/Background/TwinklingStars";
+import ShootingStars from "./components/Background/ShootingStars";
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   return (

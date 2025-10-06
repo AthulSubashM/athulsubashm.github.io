@@ -1,5 +1,5 @@
-@import "./CSS/reset.css";
-@import "./CSS/theme.css";
+@import "./reset.css";
+@import "./theme.css";
 
 body {
   background-image: linear-gradient(
@@ -15,7 +15,6 @@ body {
   margin: 0;
 }
 
-/* src/components/Navbar.css */
 .navbar {
   height: 60px; /* allocates space */
   display: flex;

@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/homepage.css";
+import "./hero.module.css";
 
 export default function HeroText() {
   return (

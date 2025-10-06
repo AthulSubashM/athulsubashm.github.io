@@ -1,5 +1,5 @@
-@import "./reset.css";
-@import "./theme.css";
+@import "../../CSS/reset.css";
+@import "../../CSS/theme.css";
 
 h1,
 h2 {
