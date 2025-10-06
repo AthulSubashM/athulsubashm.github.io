@@ -1,20 +1,39 @@
-:root {
-  --col-1: #071a05;
-  --col-ov: #997d6b;
-  --col-3: #70996b;
-  --col-4: #403b6f;
-  --col-5: #1a0d05;
-  --col-bg: #07051a;
-}
+@import "./CSS/theme.css";
 
 body {
   background-image: linear-gradient(
-      rgba(153, 125, 107, 0.2),
-      rgba(153, 125, 107, 0.5)
+      rgba(var(--color-2), 0.2),
+      rgba(var(--color-2), 0.5)
     ),
     var(--global-bg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+/* src/components/Navbar.css */
+.navbar {
+  height: 60px; /* allocates space */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin: 0;
+  background: rgba(var(--color-2), 0.8); /* transparent dark bg */
+  color: rgb(var(--color-5));
+  position: relative;
+  z-index: 10;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li {
+  cursor: pointer;
 }

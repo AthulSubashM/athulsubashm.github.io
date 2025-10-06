@@ -1,0 +1,15 @@
+:root {
+  --color-1: 7, 26, 5; /* #071A05 */
+  --color-2: 153, 125, 107; /* #997D6B */
+  --color-3: 112, 153, 107; /* #70996B */
+  --color-4: 64, 59, 111; /* #403B6F */
+  --color-5: 26, 13, 5; /* #1A0D05 */
+  --color-6: 7, 5, 26; /* #07051A */
+
+  --colhex-1: #071a05; /* very dark green (almost black) */
+  --colhex-2: #997d6b; /* muted brown / taupe */
+  --colhex-3: #70996b; /* desaturated green */
+  --colhex-4: #403b6f; /* dark slate purple */
+  --colhex-5: #1a0d05; /* very dark brown */
+  --colhex-6: #07051a; /* very dark navy blue */
+}
