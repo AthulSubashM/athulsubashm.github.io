@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./index.css";
 
 import TwinklingStars from "./components/TwinklingStars";
 import ShootingStars from "./components/ShootingStars";

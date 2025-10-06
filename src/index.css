@@ -1,4 +1,20 @@
+:root {
+  --col-1: #071a05;
+  --col-ov: #997d6b;
+  --col-3: #70996b;
+  --col-4: #403b6f;
+  --col-5: #1a0d05;
+  --col-bg: #07051a;
+}
+
 body {
-  background: var(--global-bg) no-repeat center center fixed;
+  background-image: linear-gradient(
+      rgba(153, 125, 107, 0.2),
+      rgba(153, 125, 107, 0.5)
+    ),
+    var(--global-bg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
 }
