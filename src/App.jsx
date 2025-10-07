@@ -5,6 +5,7 @@ import TwinklingStars from "./components/Background/TwinklingStars";
 import ShootingStars from "./components/Background/ShootingStars";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
+import Footer from "./components/Footer/Footer";
 
 // Lazy-loaded pages
 const Contact = lazy(() => import("./pages/Contact"));
@@ -26,6 +27,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Suspense>
+
+      <Footer />
     </Router>
   );
 }

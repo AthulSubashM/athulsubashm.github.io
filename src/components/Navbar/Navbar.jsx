@@ -8,6 +8,7 @@ export default function Navbar() {
         <li>Home</li>
         <li>Projects</li>
         <li>About</li>
+        <li>Connect with Me</li>
       </ul>
     </nav>
   );
