@@ -18,7 +18,7 @@ export default function Techstack() {
   // Define grid positions for icons
   const columns = 5; // number of icons per row
   const iconGap = 20; // px gap
-  const iconSize = 80; // width/height in px
+  const iconSize = 40; // width/height in px
 
   // Reverse the icons array for display order
   const reversedIcons = [...icons].reverse();
@@ -50,7 +50,6 @@ export default function Techstack() {
     <section
       ref={sectionRef}
       style={{
-        minHeight: "100vh",
         padding: "0",
         position: "relative", // needed for absolute children
       }}

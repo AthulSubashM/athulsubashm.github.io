@@ -2,13 +2,17 @@
 @import "./theme.css";
 
 body {
-  background-image: linear-gradient(
+  background-color: var(--colhex-6);
+}
+
+.bg {
+  position: fixed;
+  height: 100vh;
+  inset: 0; /* top:0, right:0, bottom:0, left:0 */
+  z-index: -1; /* behind everything */
+  background: linear-gradient(
       rgba(var(--color-2), 0.2),
       rgba(var(--color-2), 0.5)
     ),
-    var(--global-bg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
+    url("../assets/stars_background.jpg") center/cover no-repeat;
 }

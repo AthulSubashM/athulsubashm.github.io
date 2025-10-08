@@ -1,5 +1,12 @@
-.star-twinkle {
+.stars-container {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* fixed size */
+  height: 100vh; /* stable height */
+}
+.star-twinkle {
+  position: absolute;
   background: white;
   border-radius: 50%;
   opacity: 0;
@@ -17,7 +24,7 @@
 }
 
 .shooting-star {
-  position: fixed;
+  position: absolute;
   width: 2px;
   height: 100px;
   background: linear-gradient(white, rgba(255, 255, 255, 0));

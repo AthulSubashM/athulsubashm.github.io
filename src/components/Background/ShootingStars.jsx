@@ -25,7 +25,7 @@ export default function ShootingStars() {
   }, []);
 
   return (
-    <div>
+    <div className={css["stars-container"]}>
       {stars.map((star) => (
         <div
           key={star.id}

@@ -3,6 +3,10 @@
   color: white;
 }
 
+img {
+  justify-self: center;
+}
+
 .footer-grid {
   min-height: 30vh;
   display: grid;
@@ -28,4 +32,10 @@ form {
   color: #000000;
   background-color: white;
   padding: 0.2em 1em;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }

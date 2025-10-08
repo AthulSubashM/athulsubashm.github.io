@@ -3,7 +3,7 @@ import css from "./stars.module.css";
 export default function TwinklingStars() {
   const stars = Array.from({ length: 100 }); // 50 twinkling stars
   return (
-    <div>
+    <div className={css["stars-container"]}>
       {stars.map((_, i) => {
         const size = 2 + Math.random() * 2; // Random size between 2px and 4px
         const opacity = 0.5 + Math.random() * 0.5; // Random opacity for brightness (0.3 - 1)
