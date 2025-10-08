@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useSprings, animated } from "@react-spring/web";
-import { icons } from "./Hero/Icons";
+import { icons } from "./Hero/Icons.js";
 
 export default function Techstack() {
   const sectionRef = useRef();

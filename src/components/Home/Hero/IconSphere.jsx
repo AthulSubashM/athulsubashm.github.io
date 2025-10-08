@@ -2,7 +2,7 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { CanvasTexture, DoubleSide, Vector3 } from "three";
 import { renderToStaticMarkup } from "react-dom/server";
-import { icons } from "./Icons";
+import { icons } from "./Icons.js";
 
 // Convert React icon to CanvasTexture
 function createIconTexture(IconComponent, size = 128, color = "#fff") {
