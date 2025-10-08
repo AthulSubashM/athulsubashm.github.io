@@ -7,6 +7,11 @@ import "swiper/css/pagination";
 import { projects } from "../Projects/projectslist";
 
 export default function ProjectSlider() {
+  // Select Projects to show by ID
+  const selectedProjects = projects.filter((project) =>
+    [1, 2, 3, 4, 5].includes(project.id)
+  );
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -22,7 +27,7 @@ export default function ProjectSlider() {
       }}
       className="my-8 w-full max-w-3xl"
     >
-      {projects.map((project, index) => (
+      {selectedProjects.map((project, index) => (
         <SwiperSlide key={index}>
           <div className="rounded-xl shadow-lg p-4 bg-white dark:bg-gray-900">
             <img

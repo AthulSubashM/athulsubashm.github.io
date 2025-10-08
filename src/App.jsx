@@ -15,20 +15,22 @@ const Projects = lazy(() => import("./pages/Projects"));
 function App() {
   return (
     <Router>
-      <Navbar />
-      <TwinklingStars />
-      <ShootingStars />
-
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Suspense>
-
-      <Footer />
+      <div className="app-container">
+        <Navbar />
+        <TwinklingStars />
+        <ShootingStars />
+        <main className="app-content">
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

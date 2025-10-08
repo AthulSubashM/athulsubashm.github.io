@@ -13,7 +13,9 @@ export default function Navbar() {
         <li>
           <Link to="/projects">Projects</Link>
         </li>
-        <li>About</li>
+        <li>
+          <Link to="/contact">About</Link>
+        </li>
         <li>Connect with Me</li>
       </ul>
     </nav>

@@ -7,6 +7,7 @@ import blenderImg from "../../assets/projects/blender.png";
 // List of Projects
 export const projects = [
   {
+    id: 1,
     title: "My Portfolio",
     description: "My personal portfolio built with React.js",
     image: portImg,
@@ -14,6 +15,7 @@ export const projects = [
     demo: "https://yourdemo.com/project1",
   },
   {
+    id: 2,
     title: "Hyprland Dotfiles",
     description: "Another React project",
     image: hyprImg,
@@ -21,6 +23,7 @@ export const projects = [
     demo: null,
   },
   {
+    id: 3,
     title: "Eco Lens",
     description: "My personal portfolio built with React and Three.js",
     image: ecoImg,
@@ -28,6 +31,7 @@ export const projects = [
     demo: "https://yourdemo.com/project1",
   },
   {
+    id: 4,
     title: "Space Shooter 3D",
     description: "Another React project",
     image: shooterImg,
@@ -35,6 +39,7 @@ export const projects = [
     demo: null,
   },
   {
+    id: 5,
     title: "Blender Works",
     description: "My personal portfolio built with React and Three.js",
     image: blenderImg,
@@ -42,6 +47,7 @@ export const projects = [
     demo: "https://yourdemo.com/project1",
   },
   {
+    id: 6,
     title: "Project 6",
     description: "Another React project",
     image: "/images/project2.png",
