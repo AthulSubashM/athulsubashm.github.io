@@ -1,8 +1,8 @@
-import styles from "../home.module.css";
+import css from "../home.module.css";
 
 export default function HeroText() {
   return (
-    <div className={styles["hero-text"]}>
+    <div className={css["hero-text"]}>
       <h2>Hi, I'm Athul</h2>
       <h1>From Pixels to Physics: Frontend, Games & Software Developer</h1>
       {/* <h1>Frontend Developer | Software Engineer | 3D Artist</h1> */}

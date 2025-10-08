@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./stars.module.css";
+import css from "./stars.module.css";
 
 export default function ShootingStars() {
   const [stars, setStars] = useState([]);
@@ -29,7 +29,7 @@ export default function ShootingStars() {
       {stars.map((star) => (
         <div
           key={star.id}
-          className={styles["shooting-star"]}
+          className={css["shooting-star"]}
           style={{
             top: star.top,
             left: star.left,

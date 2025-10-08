@@ -1,0 +1,31 @@
+.footer {
+  background-color: rgba(var(--color-2), 0.8);
+  color: white;
+}
+
+.footer-grid {
+  min-height: 30vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+.copyright {
+  background-color: var(--colhex-2);
+  color: var(--colhex-5);
+  text-align: center;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+form {
+  border: 1px solid #000000;
+  border-radius: 50px;
+  color: #000000;
+  background-color: white;
+  padding: 0.2em 1em;
+}

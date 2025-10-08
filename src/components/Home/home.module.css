@@ -21,6 +21,6 @@ h2 {
     flex-direction: column; /* vertical on mobile */
   }
   .hero-text {
-    order: -1; /* move text above the sphere */
+    /* order: -1; move text above the sphere */
   }
 }
