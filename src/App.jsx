@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer/Footer";
 
 // Lazy-loaded pages
-const Contact = lazy(() => import("./pages/Contact"));
+const Connect = lazy(() => import("./pages/Connect"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const Projects = lazy(() => import("./pages/Projects"));
 
@@ -17,15 +17,14 @@ function App() {
     <Router>
       <div className="app-container">
         <Navbar />
-        <TwinklingStars />
-        <ShootingStars />
+        <TwinklingStars /> <ShootingStars />
         <main className="app-content">
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/connect" element={<Connect />} />
             </Routes>
           </Suspense>
         </main>
