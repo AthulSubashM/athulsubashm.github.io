@@ -1,7 +1,38 @@
 .projectCard {
   color: white;
-  height: 10vh;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
 }
 h3 {
-  color: aliceblue;
+}
+
+.projectImage {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.projectImageContainer {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.projectDetailsOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(3px);
 }

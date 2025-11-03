@@ -1,0 +1,28 @@
+import React from "react";
+import css from "./rocket.module.css";
+
+export default function Rocket() {
+  return (
+    <button className={css.scene} aria-label="Launch rocket (advanced demo)">
+      <svg
+        className={css["rocket-svg"]}
+        viewBox="0 0 84 84"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-hidden="true"
+      >
+        <path
+          d="M 80 20 C 80 35 75 50 60 60 C 60 70 50 76 44 76 L 45 63 L 43 63 L 40 60 L 37 57 L 37 55 L 24 56 C 24 50 30 40 40 40 C 50 25 65 20 80 20"
+          fill="#fff"
+        />
+        <path d="M 72 28 " />
+        <circle cx="62" cy="38" r="6" fill="#413539" />
+        <path
+          className={css.flame}
+          d="M 35 65 C 39 68 41 67 43 65 C 43 74 29 74 24 74 C 24 69 26 57 35 57 C 33 59 32 62 35 65"
+          fill="#fff"
+        />
+      </svg>
+    </button>
+  );
+}

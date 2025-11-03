@@ -1,5 +1,6 @@
 import css from "./footer.module.css";
-import logo from "../../assets/vite.svg";
+import Logo from "../Logo/rocket.jsx";
+import { Link } from "react-router";
 
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -8,11 +9,20 @@ export default function Footer() {
   return (
     <footer className={css.footer}>
       <div className={css["footer-grid"]}>
-        <img src={logo} alt="Logo" className={css.logo} />
+        <Logo />
         <ul className={css.links}>
-          <li>Home</li>
-          <li>Projects</li>
-          <li>About</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/projects">Projects</Link>
+          </li>
+          <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
+          <li>
+            <Link to="/connect">Connect with Me</Link>
+          </li>
         </ul>
         <div className={css.contact}>
           <div className={css.subscribe}>

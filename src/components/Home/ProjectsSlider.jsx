@@ -25,20 +25,22 @@ export default function ProjectSlider() {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       }}
-      className="my-8 w-full max-w-3xl"
     >
       {selectedProjects.map((project, index) => (
         <SwiperSlide key={index}>
-          <div className="rounded-xl shadow-lg p-4 bg-white dark:bg-gray-900">
+          <div>
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-64 object-cover rounded-lg"
+              style={{
+                aspectRatio: "16 / 9",
+                objectFit: "cover",
+                borderRadius: "10px",
+                width: "100%",
+              }}
             />
-            <h3 className="text-xl font-semibold mt-4">{project.title}</h3>
-            <p className="text-gray-600 dark:text-gray-300 mt-2">
-              {project.description}
-            </p>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
           </div>
         </SwiperSlide>
       ))}

@@ -1,11 +1,11 @@
 import css from "./navbar.module.css";
-import logo from "../../assets/vite.svg";
+import Logo from "../../components/Logo/rocket";
 import { Link } from "react-router";
 
 export default function Navbar() {
   return (
     <nav className={css.navbar}>
-      <img src={logo} alt="Logo" className={css.logo} />
+      <Logo />
       <ul className={css["nav-links"]}>
         <li>
           <Link to="/">Home</Link>
@@ -16,7 +16,9 @@ export default function Navbar() {
         <li>
           <Link to="/blogs">Blogs</Link>
         </li>
-        <Link to="/connect">Connect with Me</Link>
+        <li>
+          <Link to="/connect">Connect with Me</Link>
+        </li>
       </ul>
     </nav>
   );
