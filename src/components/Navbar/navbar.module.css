@@ -1,25 +1,42 @@
 .navbar {
-  height: 60px; /* allocates space */
+  height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  background: rgba(var(--color-2), 0.8); /* transparent dark bg */
-  color: rgb(var(--color-5));
+  background: rgba(var(--color-2), 0.8);
   position: relative;
   z-index: 10;
 }
 
-.nav-links {
+.navbar ul {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-.nav-links li {
+.links.open {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100vw;
+  background: rgba(var(--color-2), 0.8);
+}
+
+.links.open ul {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.hamburger {
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
   cursor: pointer;
 }
 
-/* .logo { */
-/*   height: 2em; */
-/* } */
+.logo {
+  height: 2em;
+}

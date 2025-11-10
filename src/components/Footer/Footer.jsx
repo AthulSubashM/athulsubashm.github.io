@@ -1,6 +1,6 @@
 import css from "./footer.module.css";
-import Logo from "../Logo/rocket.jsx";
-import { Link } from "react-router";
+import Logo from "../../assets/Logo/rocket.jsx";
+import Links from "../Navbar/Links.jsx";
 
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -10,20 +10,7 @@ export default function Footer() {
     <footer className={css.footer}>
       <div className={css["footer-grid"]}>
         <Logo />
-        <ul className={css.links}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/projects">Projects</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/connect">Connect with Me</Link>
-          </li>
-        </ul>
+        <Links />
         <div className={css.contact}>
           <div className={css.subscribe}>
             Subscriber to my Newsletter!

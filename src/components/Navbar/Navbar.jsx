@@ -1,25 +1,54 @@
+import { useState, useEffect, useRef } from "react";
 import css from "./navbar.module.css";
-import Logo from "../../components/Logo/rocket";
-import { Link } from "react-router";
+import Logo from "../../assets/Logo/rocket";
+import Menu from "../../assets/Menu/menu";
+import Links from "./Links.jsx";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  const navbarRef = useRef(null);
+  const linksRef = useRef(null);
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
+  useEffect(() => {
+    const observer = new ResizeObserver(() => {
+      if (!navbarRef.current || !linksRef.current) return;
+      const navbarWidth = navbarRef.current.offsetWidth;
+      const linksWidth = linksRef.current.scrollWidth;
+      setIsOverflowing(linksWidth > navbarWidth - 100);
+    });
+
+    observer.observe(navbarRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className={css.navbar}>
+    <nav className={css.navbar} ref={navbarRef}>
       <Logo />
-      <ul className={css["nav-links"]}>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/projects">Projects</Link>
-        </li>
-        <li>
-          <Link to="/blogs">Blogs</Link>
-        </li>
-        <li>
-          <Link to="/connect">Connect with Me</Link>
-        </li>
-      </ul>
+
+      <button
+        className={css.hamburger}
+        onClick={toggleMenu}
+        style={{
+          display: isOverflowing ? "block" : "none",
+          width: "2.5em",
+          height: "2em",
+        }}
+        aria-label="Toggle menu"
+      >
+        <Menu width={32} height={32} isOpen={menuOpen} />
+      </button>
+
+      <div
+        ref={linksRef}
+        className={`${css.links} ${menuOpen ? css.open : ""}`}
+        style={{ display: !isOverflowing || menuOpen ? "flex" : "none" }}
+      >
+        <Links />
+      </div>
     </nav>
   );
 }

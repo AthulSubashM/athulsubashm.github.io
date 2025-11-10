@@ -1,0 +1,20 @@
+.bar {
+  transition: all 0.3s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Top bar */
+.bar.top.open {
+  transform: translateY(7px) rotate(45deg);
+}
+
+/* Middle bar */
+.bar.middle.open {
+  opacity: 0;
+}
+
+/* Bottom bar */
+.bar.bottom.open {
+  transform: translateY(-7px) rotate(-45deg);
+}

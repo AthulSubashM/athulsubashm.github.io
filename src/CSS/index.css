@@ -1,8 +1,41 @@
 @import "./reset.css";
 @import "./theme.css";
 
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Elms+Sans:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Slab:wght@100..900&display=swap");
+html {
+  font-size: 16px;
+}
+
+h1,
+h2 {
+  color: white;
+  font-family: "Roboto Slab", serif;
+}
+h1 {
+  font-size: clamp(3.125rem, 2.5417rem + 1.2153vw, 4rem);
+  font-weight: 400;
+}
+h2 {
+  font-size: clamp(2rem, 1.8333rem + 0.3472vw, 2.25rem);
+  font-weight: 300;
+}
+p {
+  color: white;
+  font-family: "Karla", sans-serif;
+  font-size: 1.2rem;
+}
+li {
+  cursor: pointer;
+  color: rgb(var(--color-5));
+  font-size: 1.125rem;
+  font-family: "Elms Sans", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+}
 body {
   background-color: var(--colhex-6);
+  font-size: 1rem;
 }
 
 .bg {
