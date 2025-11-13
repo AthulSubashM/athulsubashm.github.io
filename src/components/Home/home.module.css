@@ -19,3 +19,47 @@
     /* order: -1; move text above the sphere */
   }
 }
+
+.slider-container {
+  margin-top: 4rem;
+  transition: margin-top 0.3s ease-in-out;
+  height: 20rem;
+}
+.slider-container img {
+  border-radius: 10px;
+}
+.slider-container .slider-text {
+  position: relative;
+  top: -3.7em;
+  transition: top 0.2s ease-in-out;
+  color: white;
+  background-color: rgba(var(--color-2), 0.8);
+  backdrop-filter: blur(5px);
+  padding: 1em;
+  padding-top: 0.05em;
+  border-radius: 0 0 10px 10px;
+}
+.slider-container .slider-text h3 {
+  font-size: 1.25em;
+  font-family: "Elms Sans", sans-serif;
+}
+.slider-container .slider-text p,
+.slider-container .slider-text a {
+  font-size: 1em;
+  display: none;
+}
+
+.slider-container:hover {
+  margin-top: 2rem;
+}
+
+.slider-container:hover img {
+  border-radius: 10px 10px 0 0;
+}
+.slider-container:hover .slider-text {
+  top: 0;
+}
+.slider-container:hover .slider-text p,
+.slider-container:hover .slider-text a {
+  display: block;
+}

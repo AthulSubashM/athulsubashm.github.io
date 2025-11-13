@@ -1,10 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { FaGithub } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { projects } from "../Projects/projectslist";
+import css from "./home.module.css";
 
 export default function ProjectSlider() {
   // Select Projects to show by ID
@@ -21,26 +23,37 @@ export default function ProjectSlider() {
       slidesPerView={3}
       loop={true}
       autoplay={{
-        delay: 2500, // time between slides
+        delay: 3000, // time between slides
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       }}
     >
       {selectedProjects.map((project, index) => (
         <SwiperSlide key={index}>
-          <div>
+          <div className={css["slider-container"]}>
             <img
               src={project.image}
               alt={project.title}
               style={{
                 aspectRatio: "16 / 9",
                 objectFit: "cover",
-                borderRadius: "10px",
                 width: "100%",
               }}
             />
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
+            <div className={css["slider-text"]}>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={css["github-link"]}
+                >
+                  <FaGithub />
+                </a>
+              )}
+            </div>
           </div>
         </SwiperSlide>
       ))}
