@@ -1,20 +1,19 @@
 import { forwardRef } from "react";
-import { Link } from "react-router";
 
 const Links = forwardRef((props, ref) => {
   return (
     <ul ref={ref}>
       <li>
-        <Link to="/">Home</Link>
+        <a href="/">Home</a>
       </li>
       <li>
-        <Link to="/projects">Projects</Link>
+        <a href="/projects">Projects</a>
       </li>
       {/* <li> */}
-      {/*   <Link to="/blogs">Blogs</Link> */}
+      {/*   <a href="/blogs">Blogs</a> */}
       {/* </li> */}
       <li>
-        <Link to="/connect">Connect with Me</Link>
+        <a href="/connect">Connect with Me</a>
       </li>
     </ul>
   );

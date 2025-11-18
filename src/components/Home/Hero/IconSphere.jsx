@@ -1,14 +1,26 @@
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { CanvasTexture, DoubleSide, Vector3 } from "three";
-import { renderToStaticMarkup } from "react-dom/server";
+import { CanvasTexture, DoubleSide, Vector3, PlaneGeometry } from "three";
+import { createRoot } from "react-dom/client";
+import { flushSync } from "react-dom";
 import { icons } from "./Icons.js";
 
-// Convert React icon to CanvasTexture
+// Convert React icon to CanvasTexture (Client-side)
 function createIconTexture(IconComponent, size = 128, color = "#fff") {
-  const svgString = renderToStaticMarkup(
-    <IconComponent size={size} color={color} />
-  );
+  const div = document.createElement("div");
+  div.style.width = `${size}px`;
+  div.style.height = `${size}px`;
+
+  // Render synchronously to get the SVG string immediately
+  const root = createRoot(div);
+  flushSync(() => {
+    root.render(<IconComponent size={size} color={color} />);
+  });
+
+  const svgString = div.innerHTML;
+  // Clean up
+  setTimeout(() => root.unmount(), 0);
+
   const blob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
   const url = URL.createObjectURL(blob);
 
@@ -43,20 +55,10 @@ function useIconTextures(icons, size = 64) {
   return textures;
 }
 
-// Single icon mesh
-function IconMesh({ texture, positionRef, size = 1 }) {
-  const meshRef = useRef();
-  const { camera } = useThree();
-
-  useFrame(() => {
-    if (!meshRef.current) return;
-    meshRef.current.lookAt(camera.position);
-    meshRef.current.position.copy(positionRef.current);
-  });
-
+// Single icon mesh - Optimized: No useFrame, shared geometry
+function IconMesh({ texture, geometry, meshRef }) {
   return (
-    <mesh ref={meshRef}>
-      <planeGeometry args={[size, size]} />
+    <mesh ref={meshRef} geometry={geometry}>
       <meshBasicMaterial map={texture} transparent side={DoubleSide} />
     </mesh>
   );
@@ -68,13 +70,17 @@ function IconSphereGroup() {
   const radius = 3;
   const count = icons.length;
   const [hovered, setHovered] = useState(false);
-  const [scrollFactor, setScrollFactor] = useState(0);
+
+  // Optimization: Use ref for scroll factor to avoid re-renders
+  const scrollFactor = useRef(0);
+
+  const { camera } = useThree();
 
   useEffect(() => {
     const onScroll = () => {
       const maxScroll = window.innerHeight * 1.5;
       const factor = Math.min(window.scrollY / maxScroll, 1);
-      setScrollFactor(factor);
+      scrollFactor.current = factor;
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -97,10 +103,18 @@ function IconSphereGroup() {
   // Current positions (updated each frame)
   const currentPositions = useRef(initialPositions.map((p) => p.clone()));
 
+  // Refs for all child meshes
+  const meshRefs = useRef([]);
+
+  // Shared geometry
+  const sharedGeometry = useMemo(() => new PlaneGeometry(1, 1), []);
+
   useFrame(() => {
     if (!groupRef.current) return;
 
-    if (scrollFactor < 0.001) {
+    const factor = scrollFactor.current;
+
+    if (factor < 0.001) {
       // Rotate sphere
       const speed = hovered ? 0.002 : 0.01;
       groupRef.current.rotation.y += speed;
@@ -122,14 +136,30 @@ function IconSphereGroup() {
     }
 
     // If scrollFactor is small, lerp back to sphere
-    if (scrollFactor < 0.01) {
+    if (factor < 0.01) {
       for (let i = 0; i < currentPositions.current.length; i++) {
         currentPositions.current[i].lerp(initialPositions[i], 0.1);
       }
     }
+
+    // Update all meshes
+    meshRefs.current.forEach((mesh, i) => {
+      if (mesh) {
+        mesh.position.copy(currentPositions.current[i]);
+        mesh.lookAt(camera.position);
+      }
+    });
   });
 
-  if (textures.length !== icons.length) return null;
+  // Loading Placeholder
+  if (textures.length !== icons.length) {
+    return (
+      <mesh rotation={[0, 0, 0]}>
+        <sphereGeometry args={[3, 16, 16]} />
+        <meshBasicMaterial wireframe color="#444" transparent opacity={0.3} />
+      </mesh>
+    );
+  }
 
   return (
     <group
@@ -141,8 +171,8 @@ function IconSphereGroup() {
         <IconMesh
           key={i}
           texture={tex}
-          positionRef={{ current: currentPositions.current[i] }}
-          size={1}
+          geometry={sharedGeometry}
+          meshRef={(el) => (meshRefs.current[i] = el)}
         />
       ))}
     </group>

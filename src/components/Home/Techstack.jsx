@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { useSprings, animated } from "@react-spring/web";
+import { useSprings, animated as Animated } from "@react-spring/web";
 import { icons } from "./Hero/Icons.js";
 
 export default function Techstack() {
@@ -11,8 +11,9 @@ export default function Techstack() {
       ([entry]) => setInView(entry.isIntersecting),
       { threshold: 0.3 }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => sectionRef.current && observer.unobserve(sectionRef.current);
+    const currentSection = sectionRef.current;
+    if (currentSection) observer.observe(currentSection);
+    return () => currentSection && observer.unobserve(currentSection);
   }, []);
 
   // Define grid positions for icons
@@ -65,7 +66,7 @@ export default function Techstack() {
         {springs.map((props, i) => {
           const IconComponent = reversedIcons[i];
           return (
-            <animated.div
+            <Animated.div
               key={i}
               style={{
                 position: "absolute", // absolute inside container
@@ -76,7 +77,7 @@ export default function Techstack() {
               }}
             >
               <IconComponent size={50} color="#ffffff" />
-            </animated.div>
+            </Animated.div>
           );
         })}
       </div>

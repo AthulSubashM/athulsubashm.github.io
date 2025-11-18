@@ -37,7 +37,7 @@ export default function ProjectSlider() {
         loop={true}
         centeredSlides={true}
         autoplay={{
-          delay: 5000, // time between slides
+          delay: 5000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
@@ -46,7 +46,7 @@ export default function ProjectSlider() {
           <SwiperSlide key={index}>
             <div className={css["slider-container"]}>
               <img
-                src={project.image}
+                src={project.image.src || project.image}
                 alt={project.title}
                 style={{
                   aspectRatio: "16 / 9",
@@ -60,7 +60,7 @@ export default function ProjectSlider() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={css["h3-link"]} // Reusing the link class
+                    className={css["h3-link"]}
                   >
                     {project.title}
                   </a>
