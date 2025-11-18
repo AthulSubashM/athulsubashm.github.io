@@ -32,7 +32,6 @@ export default function Footer() {
               <a
                 href="https://www.linkedin.com/in/athulmsubash/"
                 target="_blank"
-                target="_blank"
                 rel="noopener noreferrer"
               >
                 <FaLinkedin />
