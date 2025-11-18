@@ -27,8 +27,9 @@ export default function Navbar() {
 
   return (
     <nav className={css.navbar} ref={navbarRef}>
-      <Logo />
-
+      <div className={css["navbar-logo"]}>
+        <Logo />
+      </div>
       <button
         className={css.hamburger}
         onClick={toggleMenu}

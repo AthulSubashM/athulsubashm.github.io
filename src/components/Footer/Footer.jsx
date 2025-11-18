@@ -7,9 +7,11 @@ import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer className={css.footer}>
+    <footer className={css.footer} id="footer">
       <div className={css["footer-grid"]}>
-        <Logo />
+        <div className={css["footer-logo"]}>
+          <Logo />
+        </div>
         <Links />
         <div className={css.contact}>
           <div className={css.subscribe}>
@@ -18,16 +20,37 @@ export default function Footer() {
           </div>
           <ul className={css.socials}>
             <li>
-              <FaGithub />
+              <a
+                href="https://github.com/AthulSubashM"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </a>
             </li>
             <li>
-              <FaLinkedin />
+              <a
+                href="https://www.linkedin.com/in/athulmsubash/"
+                target="_blank"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
             </li>
             <li>
-              <FaInstagram />
+              <a
+                href="https://www.instagram.com/athulxo/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram />
+              </a>
             </li>
             <li>
-              <MdEmail />
+              <a href="mailto:athul.m.subash@gmail.com">
+                <MdEmail />
+              </a>
             </li>
           </ul>
           {/* <div className={css.email}>athul.m.subash@gmail.com</div> */}

@@ -1,5 +1,5 @@
 :root {
-  --size: 64px;
+  --size: 100%;
   --launch-distance: 120px;
   --launch-duration: 700ms;
   --flame-duration: 200ms;

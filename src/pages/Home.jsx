@@ -5,6 +5,7 @@ import Hero from "../components/Home/Hero/Hero";
 import Techstack from "../components/Home/Techstack";
 import About from "../components/Home/About";
 import ProjectSlider from "../components/Home/ProjectsSlider";
+import css from "../components/Home/home.module.css";
 
 function Home() {
   return (
@@ -12,7 +13,10 @@ function Home() {
       <Hero />
       <About />
       <ProjectSlider />
-      <Techstack />
+      <div className={css["home-stack"]}>
+        {" "}
+        <Techstack />
+      </div>
     </>
   );
 }

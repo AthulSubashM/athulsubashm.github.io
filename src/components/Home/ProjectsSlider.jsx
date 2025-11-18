@@ -15,48 +15,72 @@ export default function ProjectSlider() {
   );
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      navigation
-      pagination={{ clickable: true }}
-      spaceBetween={30}
-      slidesPerView={3}
-      loop={true}
-      autoplay={{
-        delay: 3000, // time between slides
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      }}
-    >
-      {selectedProjects.map((project, index) => (
-        <SwiperSlide key={index}>
-          <div className={css["slider-container"]}>
-            <img
-              src={project.image}
-              alt={project.title}
-              style={{
-                aspectRatio: "16 / 9",
-                objectFit: "cover",
-                width: "100%",
-              }}
-            />
-            <div className={css["slider-text"]}>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={css["github-link"]}
-                >
-                  <FaGithub />
-                </a>
-              )}
+    <div className={css["home-slider"]}>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        navigation
+        pagination={{ clickable: true }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          600: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
+        loop={true}
+        centeredSlides={true}
+        autoplay={{
+          delay: 5000, // time between slides
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+      >
+        {selectedProjects.map((project, index) => (
+          <SwiperSlide key={index}>
+            <div className={css["slider-container"]}>
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{
+                  aspectRatio: "16 / 9",
+                  objectFit: "cover",
+                  width: "100%",
+                }}
+              />
+              <div className={css["slider-text"]}>
+                <h3>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={css["h3-link"]} // Reusing the link class
+                  >
+                    {project.title}
+                  </a>
+                </h3>
+                <p>{project.description}</p>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={css["github-link"]}
+                  >
+                    <FaGithub />
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }

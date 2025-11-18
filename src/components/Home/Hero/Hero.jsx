@@ -5,7 +5,9 @@ import css from "../home.module.css";
 export default function Hero() {
   return (
     <div className={css.hero}>
-      <IconSphere />
+      <div className={css.sphere}>
+        <IconSphere />
+      </div>
       <HeroText />
     </div>
   );

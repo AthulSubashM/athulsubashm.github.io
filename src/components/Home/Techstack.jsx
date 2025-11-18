@@ -18,7 +18,7 @@ export default function Techstack() {
   // Define grid positions for icons
   const columns = 5; // number of icons per row
   const iconGap = 20; // px gap
-  const iconSize = 40; // width/height in px
+  const iconSize = 60; // width/height in px
 
   // Reverse the icons array for display order
   const reversedIcons = [...icons].reverse();
@@ -58,8 +58,8 @@ export default function Techstack() {
         style={{
           position: "relative",
           width: "100%",
-          height: "300px", // adjust height as needed
-          marginTop: "30px",
+          height: "20rem",
+          margin: "5rem 2rem",
         }}
       >
         {springs.map((props, i) => {

@@ -1,6 +1,8 @@
+import css from "./home.module.css";
+
 export default function About() {
   return (
-    <section>
+    <div className={css["about-text"]}>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
@@ -9,6 +11,6 @@ export default function About() {
         perspiciatis unde omnis iste natus error sit voluptatem accusantium
         doloremque laudantium.
       </p>
-    </section>
+    </div>
   );
 }

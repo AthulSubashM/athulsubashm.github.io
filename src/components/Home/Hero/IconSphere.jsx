@@ -152,7 +152,7 @@ function IconSphereGroup() {
 // Main component
 export default function IconSphere() {
   return (
-    <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
+    <Canvas camera={{ position: [0, 0, 15], fov: 30 }}>
       <ambientLight intensity={0.75} />
       <pointLight position={[10, 10, 10]} />
       <IconSphereGroup />
