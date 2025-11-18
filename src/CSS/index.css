@@ -49,7 +49,7 @@ body {
       rgba(var(--color-2), 0.2),
       rgba(var(--color-2), 0.5)
     ),
-    url("../assets/stars_background.jpg") center/cover no-repeat;
+    url("../assets/stars_background.webp") center/cover no-repeat;
 }
 
 .app-container {

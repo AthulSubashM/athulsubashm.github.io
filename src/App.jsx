@@ -1,13 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-import TwinklingStars from "./components/Background/TwinklingStars";
-import ShootingStars from "./components/Background/ShootingStars";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer/Footer";
 
 // Lazy-loaded pages
+const TwinklingStars = lazy(() =>
+  import("./components/Background/TwinklingStars")
+);
+const ShootingStars = lazy(() =>
+  import("./components/Background/ShootingStars")
+);
 const Connect = lazy(() => import("./pages/Connect"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const Projects = lazy(() => import("./pages/Projects"));

@@ -1,5 +1,5 @@
 import css from "./footer.module.css";
-import Logo from "../../assets/Logo/rocket.jsx";
+import Logo from "../../assets/svg/Logo/rocket.jsx";
 import Links from "../Navbar/Links.jsx";
 
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";

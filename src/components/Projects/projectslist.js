@@ -1,8 +1,8 @@
-import portImg from "../../assets/projects/portfolio.png";
-import hyprImg from "../../assets/projects/hyprland.png";
-import ecoImg from "../../assets/projects/ecolens.png";
-import shooterImg from "../../assets/projects/spaceshooter.png";
-import blenderImg from "../../assets/projects/blender.png";
+import portImg from "../../assets/projects/portfolio.webp";
+import hyprImg from "../../assets/projects/hyprland.webp";
+import ecoImg from "../../assets/projects/ecolens.webp";
+import shooterImg from "../../assets/projects/spaceshooter.webp";
+import blenderImg from "../../assets/projects/blender.webp";
 
 // List of Projects
 export const projects = [

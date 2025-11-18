@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import css from "./navbar.module.css";
-import Logo from "../../assets/Logo/rocket";
-import Menu from "../../assets/Menu/menu";
+import Logo from "../../assets/svg/Logo/rocket";
+import Menu from "../../assets/svg/Menu/menu";
 import Links from "./Links.jsx";
 
 export default function Navbar() {
