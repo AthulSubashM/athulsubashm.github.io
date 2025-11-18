@@ -40,16 +40,14 @@ body {
 
 .bg {
   position: fixed;
-
-  height: 100vh;
-
+  min-height: 100svh;
   inset: 0; /* top:0, right:0, bottom:0, left:0 */
   z-index: -1; /* behind everything */
   background: linear-gradient(
       rgba(var(--color-2), 0.2),
       rgba(var(--color-2), 0.5)
     ),
-    url("../assets/stars_background.webp") center/cover no-repeat;
+    url("../assets/stars_background.webp") center repeat;
 }
 
 .app-container {

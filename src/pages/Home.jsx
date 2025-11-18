@@ -1,10 +1,9 @@
 import { lazy } from "react";
 const ProjectSlider = lazy(() => import("../components/Home/ProjectsSlider"));
+const Techstack = lazy(() => import("../components/Home/Techstack"));
 
 import Hero from "../components/Home/Hero/Hero";
-import Techstack from "../components/Home/Techstack";
 import About from "../components/Home/About";
-// import ProjectSlider from "../components/Home/ProjectsSlider";
 import css from "../components/Home/home.module.css";
 
 function Home() {
