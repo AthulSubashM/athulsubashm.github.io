@@ -1,0 +1,107 @@
+---
+import { icons } from "../../scripts/icons.js";
+
+// Reverse icons to match original order logic if needed, or just use as is.
+// Original code reversed them: const reversedIcons = [...icons].reverse();
+const displayIcons = [...icons];
+---
+
+<section id="techstack-section">
+  <div class="techstack-container">
+    {
+      displayIcons.map((icon, i) => (
+        <div class="tech-icon" style={`--delay: ${i * 50}ms`}>
+          <img
+            src={icon.src}
+            alt={icon.name}
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <span class="tech-name">{icon.name}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById("techstack-section");
+  const icons = document.querySelectorAll(".tech-icon");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          icons.forEach((icon) => icon.classList.add("visible"));
+        } else {
+          icons.forEach((icon) => icon.classList.remove("visible"));
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  if (section) observer.observe(section);
+</script>
+
+<style>
+  #techstack-section {
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 5rem 2rem;
+  }
+
+  .techstack-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .tech-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px; /* Rounded pill shape */
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      background 0.3s ease,
+      border-color 0.3s ease;
+    transition-delay: var(--delay);
+  }
+
+  .tech-icon.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tech-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .tech-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+
+  .tech-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    white-space: nowrap;
+  }
+</style>

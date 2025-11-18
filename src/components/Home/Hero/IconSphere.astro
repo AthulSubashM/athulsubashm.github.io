@@ -1,0 +1,22 @@
+---
+---
+
+<div id="icon-sphere-container"></div>
+
+<script>
+  import { IconSphere } from "../../../scripts/IconSphere.js";
+  import { icons } from "../../../scripts/icons.js";
+
+  const container = document.getElementById("icon-sphere-container");
+  if (container) {
+    new IconSphere(container, icons);
+  }
+</script>
+
+<style>
+  #icon-sphere-container {
+    width: 100%;
+    height: 100%;
+    min-height: 50vh; /* Ensure visibility */
+  }
+</style>

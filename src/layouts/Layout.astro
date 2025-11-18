@@ -1,9 +1,9 @@
 ---
 import { ClientRouter } from 'astro:transitions';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
-import TwinklingStars from '../components/Background/TwinklingStars';
-import ShootingStars from '../components/Background/ShootingStars';
+import Navbar from '../components/Navbar/Navbar.astro';
+import Footer from '../components/Footer/Footer.astro';
+import TwinklingStars from '../components/Background/TwinklingStars.astro';
+import ShootingStars from '../components/Background/ShootingStars.astro';
 import '../CSS/index.css';
 
 const { title } = Astro.props;
@@ -23,13 +23,13 @@ const { title } = Astro.props;
 	<body>
 		<div class="bg"></div>
 		<div class="app-container">
-			<Navbar client:load />
-			<TwinklingStars client:idle />
-			<ShootingStars client:idle />
+			<Navbar />
+			<TwinklingStars />
+			<ShootingStars />
 			<main class="app-content">
 				<slot />
 			</main>
-			<Footer client:visible />
+			<Footer />
 		</div>
 	</body>
 </html>

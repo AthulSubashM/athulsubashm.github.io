@@ -1,0 +1,31 @@
+---
+import css from "./stars.module.css";
+
+const stars = Array.from({ length: 100 }).map(() => ({
+  top: Math.random() * 100 + "%",
+  left: Math.random() * 100 + "%",
+  size: 2 + Math.random() * 2 + "px",
+  opacity: 0.5 + Math.random() * 0.5,
+  duration: 1 + Math.random() * 5 + "s",
+  delay: Math.random() * 10 + "s",
+}));
+---
+
+<div class={css["stars-container"]}>
+  {
+    stars.map((star) => (
+      <div
+        class={css["star-twinkle"]}
+        style={{
+          top: star.top,
+          left: star.left,
+          width: star.size,
+          height: star.size,
+          opacity: star.opacity,
+          animationDuration: star.duration,
+          animationDelay: star.delay,
+        }}
+      />
+    ))
+  }
+</div>
