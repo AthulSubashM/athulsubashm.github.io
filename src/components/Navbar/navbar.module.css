@@ -4,10 +4,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  background: rgba(var(--color-2), 0.8);
-  position: relative;
+  background: rgba(var(--color-2), 0.85);
+  position: sticky;
+  top: 0;
   z-index: 10;
   box-shadow: -2px 2px 5px 6px var(----colhex-5);
+  backdrop-filter: blur(8px);
 }
 
 .navbar ul {
