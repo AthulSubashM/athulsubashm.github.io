@@ -2,7 +2,7 @@
 @import "./theme.css";
 
 /* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Elms+Sans:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto+Slab:wght@100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;700&family=Karla:wght@0,400;0,600;800;1,200..800&family=Roboto+Slab:wght@100..900&display=swap"); */
 html {
   font-size: 16px;
 }
