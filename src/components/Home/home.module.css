@@ -45,6 +45,25 @@
   padding: 0 2rem;
 }
 
+/* Fallback for SSR/Hydration to prevent FOUC */
+.home-slider :global(.swiper-slide) {
+  width: 100%;
+  margin-right: 20px;
+}
+
+@media (min-width: 600px) {
+  .home-slider :global(.swiper-slide) {
+    width: calc((100% - 10px) / 2);
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-slider :global(.swiper-slide) {
+    width: calc((100% - 60px) / 3);
+    margin-right: 30px;
+  }
+}
 .slider-container {
   transition: margin-top 0.3s ease-in-out;
   height: clamp(25rem, 18.75rem + 16.6667vw, 30rem);

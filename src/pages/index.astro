@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Home/Hero/Hero.astro';
+import About from '../components/Home/About.astro';
+import ProjectsSlider from '../components/Home/ProjectsSlider.astro';
+import Techstack from '../components/Home/Techstack.astro';
+import css from '../components/Home/home.module.css';
+---
+
+<Layout title="Athul Subash | Portfolio">
+	<Hero />
+	<About />
+	<ProjectsSlider />
+	<div class={css['home-stack']}>
+		<Techstack />
+	</div>
+</Layout>

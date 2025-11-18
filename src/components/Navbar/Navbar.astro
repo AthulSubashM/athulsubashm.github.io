@@ -1,0 +1,80 @@
+---
+import css from "./navbar.module.css";
+// import Logo from "../../assets/svg/Logo/rocket"; // Assuming this is a React component, we need to check it.
+// If Logo is a .jsx file returning SVG, we should convert it or import it differently.
+// For now, I'll assume I need to handle Logo.
+import Links from "./Links.astro";
+import Rocket from "../../assets/svg/Logo/rocket.astro";
+---
+
+<nav class={css.navbar} id="navbar">
+  <div class={css["navbar-logo"]}>
+    <Rocket />
+  </div>
+  <button
+    class={css.hamburger}
+    id="hamburger-btn"
+    aria-label="Toggle menu"
+    style="display: none;"
+  >
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="menu-icon">
+      <path d="M4 8H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M4 16H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <path d="M4 24H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div
+    id="links-container"
+    class={css.links}
+  >
+    <Links />
+  </div>
+</nav>
+
+<script>
+  import css from "./navbar.module.css";
+
+  const navbar = document.getElementById("navbar");
+  const hamburgerBtn = document.getElementById("hamburger-btn");
+  const linksContainer = document.getElementById("links-container");
+  let menuOpen = false;
+
+  function toggleMenu() {
+    if (!linksContainer) return;
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      linksContainer.classList.add(css.open);
+      // Update SVG to X icon if needed
+    } else {
+      linksContainer.classList.remove(css.open);
+    }
+    // Update display style based on logic
+    updateDisplay();
+  }
+
+  function updateDisplay() {
+    if (!navbar || !linksContainer) return;
+    const navbarWidth = navbar.offsetWidth;
+    const linksWidth = linksContainer.scrollWidth;
+    const isOverflowing = linksWidth > navbarWidth - 100;
+    
+    if (hamburgerBtn) {
+        hamburgerBtn.style.display = isOverflowing ? "block" : "none";
+    }
+    
+    if (linksContainer) {
+        linksContainer.style.display = (!isOverflowing || menuOpen) ? "flex" : "none";
+    }
+  }
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener("click", toggleMenu);
+  }
+
+  const observer = new ResizeObserver(updateDisplay);
+  if (navbar) observer.observe(navbar);
+  
+  // Initial check
+  updateDisplay();
+</script>
