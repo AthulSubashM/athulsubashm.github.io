@@ -9,7 +9,7 @@ export const projects = [
   {
     id: 1,
     title: "My Portfolio",
-    description: "My personal portfolio built with React.js",
+    description: "My portfolio built with React.js, vite and three.js",
     image: portImg,
     github: "https://github.com/AthulSubashM/athulsubashm.github.io",
   },
@@ -17,7 +17,7 @@ export const projects = [
     id: 2,
     title: "Hyprland Dotfiles",
     description:
-      "My personal Hyprland configuration for Arch Linux with waybar and fuzzel dmenus.",
+      "My fully functional Hyprland configuration for Arch Linux with custom scripts and dmenus",
     image: hyprImg,
     github: "https://github.com/AthulSubashM/hyprland-dotfiles",
   },
@@ -25,7 +25,7 @@ export const projects = [
     id: 3,
     title: "Eco Lens",
     description:
-      "React App that simplyfies waste disposal with AI-powered image classification. 2024 TrentU Hackathon Project.",
+      "TrentU Hackathon Project that simplyfies waste disposal with AI-powered image classification",
     image: ecoImg,
     github: "https://github.com/AthulSubashM/EcoLens",
     demo: "https://athulsubashm.github.io/EcoLens/",
@@ -34,7 +34,7 @@ export const projects = [
     id: 4,
     title: "Space Shooter 3D",
     description:
-      "A work-in-progress 3D space shooter game built in Unity, featuring space flight physics, asteroid hazards, and combat mechanics.",
+      "(WIP) 3D space shooter game built in Unity, featuring space flight physics, asteroid hazards, and combat mechanics.",
     image: shooterImg,
     github: "https://github.com/AthulSubashM/Space-Shooter",
   },
