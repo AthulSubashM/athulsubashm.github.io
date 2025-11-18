@@ -1,26 +1,14 @@
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { CanvasTexture, DoubleSide, Vector3, PlaneGeometry } from "three";
-import { createRoot } from "react-dom/client";
-import { flushSync } from "react-dom";
+import { renderToStaticMarkup } from "react-dom/server";
 import { icons } from "./Icons.js";
 
-// Convert React icon to CanvasTexture (Client-side)
+// Convert React icon to CanvasTexture
 function createIconTexture(IconComponent, size = 128, color = "#fff") {
-  const div = document.createElement("div");
-  div.style.width = `${size}px`;
-  div.style.height = `${size}px`;
-
-  // Render synchronously to get the SVG string immediately
-  const root = createRoot(div);
-  flushSync(() => {
-    root.render(<IconComponent size={size} color={color} />);
-  });
-
-  const svgString = div.innerHTML;
-  // Clean up
-  setTimeout(() => root.unmount(), 0);
-
+  const svgString = renderToStaticMarkup(
+    <IconComponent size={size} color={color} />
+  );
   const blob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
   const url = URL.createObjectURL(blob);
 
@@ -151,15 +139,7 @@ function IconSphereGroup() {
     });
   });
 
-  // Loading Placeholder
-  if (textures.length !== icons.length) {
-    return (
-      <mesh rotation={[0, 0, 0]}>
-        <sphereGeometry args={[3, 16, 16]} />
-        <meshBasicMaterial wireframe color="#444" transparent opacity={0.3} />
-      </mesh>
-    );
-  }
+  if (textures.length !== icons.length) return null;
 
   return (
     <group
