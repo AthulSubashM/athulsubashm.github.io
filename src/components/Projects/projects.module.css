@@ -34,5 +34,5 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(8px);
 }

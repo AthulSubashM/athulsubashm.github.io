@@ -1,12 +1,43 @@
 ---
 import IconSphere from "./IconSphere.astro";
 import HeroText from "./HeroText.astro";
-import css from "../home.module.css";
 ---
 
-<div class={css.hero}>
-  <div class={css.sphere}>
+<div class="hero">
+  <div class="sphere">
     <IconSphere />
   </div>
   <HeroText />
 </div>
+
+<style>
+
+.hero {
+  /* height: 80vh; */
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem; /* spacing between items */
+  margin: 2rem;
+  min-height: 80vh;
+}
+.sphere {
+  height: 50vh;
+  width: 50vh;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-left: 0;
+    text-align: center;
+  }
+  .sphere {
+    height: 75vw;
+    width: 75vw;
+  }
+
+}
+</style>

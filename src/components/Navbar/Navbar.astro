@@ -1,5 +1,4 @@
 ---
-import css from "./navbar.module.css";
 // import Logo from "../../assets/svg/Logo/rocket"; // Assuming this is a React component, we need to check it.
 // If Logo is a .jsx file returning SVG, we should convert it or import it differently.
 // For now, I'll assume I need to handle Logo.
@@ -7,74 +6,147 @@ import Links from "./Links.astro";
 import Rocket from "../../assets/svg/Logo/rocket.astro";
 ---
 
-<nav class={css.navbar} id="navbar">
-  <div class={css["navbar-logo"]}>
+<nav class="navbar" id="navbar">
+  <div class="navbar-logo">
     <Rocket />
   </div>
-  <button
-    class={css.hamburger}
-    id="hamburger-btn"
-    aria-label="Toggle menu"
-    style="display: none;"
-  >
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="menu-icon">
-      <path d="M4 8H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      <path d="M4 16H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      <path d="M4 24H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      id="menu-icon"
+    >
+      <path d="M4 8H28" stroke="white" stroke-width="2" stroke-linecap="round"
+      ></path>
+      <path d="M4 16H28" stroke="white" stroke-width="2" stroke-linecap="round"
+      ></path>
+      <path d="M4 24H28" stroke="white" stroke-width="2" stroke-linecap="round"
+      ></path>
     </svg>
   </button>
 
-  <div
-    id="links-container"
-    class={css.links}
-  >
+  <div id="links-container" class="links">
     <Links />
   </div>
 </nav>
 
 <script>
-  import css from "./navbar.module.css";
-
-  const navbar = document.getElementById("navbar");
   const hamburgerBtn = document.getElementById("hamburger-btn");
   const linksContainer = document.getElementById("links-container");
   let menuOpen = false;
 
   function toggleMenu() {
-    if (!linksContainer) return;
+    if (!linksContainer || !hamburgerBtn) return;
     menuOpen = !menuOpen;
     if (menuOpen) {
-      linksContainer.classList.add(css.open);
-      // Update SVG to X icon if needed
+      linksContainer.classList.add("open");
+      hamburgerBtn.classList.add("open");
     } else {
-      linksContainer.classList.remove(css.open);
-    }
-    // Update display style based on logic
-    updateDisplay();
-  }
-
-  function updateDisplay() {
-    if (!navbar || !linksContainer) return;
-    const navbarWidth = navbar.offsetWidth;
-    const linksWidth = linksContainer.scrollWidth;
-    const isOverflowing = linksWidth > navbarWidth - 100;
-    
-    if (hamburgerBtn) {
-        hamburgerBtn.style.display = isOverflowing ? "block" : "none";
-    }
-    
-    if (linksContainer) {
-        linksContainer.style.display = (!isOverflowing || menuOpen) ? "flex" : "none";
+      linksContainer.classList.remove("open");
+      hamburgerBtn.classList.remove("open");
     }
   }
 
   if (hamburgerBtn) {
     hamburgerBtn.addEventListener("click", toggleMenu);
   }
-
-  const observer = new ResizeObserver(updateDisplay);
-  if (navbar) observer.observe(navbar);
-  
-  // Initial check
-  updateDisplay();
 </script>
+
+<style>
+  .navbar {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background: rgba(var(--color-2), 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: -2px 2px 5px 6px var(----colhex-5);
+    backdrop-filter: blur(8px);
+  }
+
+  .links {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger svg {
+    transition: transform 0.3s ease;
+  }
+
+  .hamburger path {
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open path:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger.open path:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open path:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .navbar-logo {
+    --size: 4rem;
+  }
+
+  @media (max-width: 480px) {
+    .hamburger {
+      display: block;
+    }
+
+    .links {
+      display: block;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100vw;
+      background: linear-gradient(
+        to bottom,
+        rgba(var(--color-2), 0.85), 40%,
+        rgba(var(--color-2), 1)
+      );
+      box-shadow: -2px 2px 5px 6px var(----colhex-5);
+
+      transform: translateY(-150%); /* Start fully retracted up */
+      visibility: hidden;
+      transition:
+        transform 0.3s cubic-bezier(0.77, 0, 0.175, 1),
+visibility 0.3s;
+    }
+
+    .links.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .links :global(ul) {
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0;
+      gap: 2rem;
+    }
+  }
+</style>

@@ -1,8 +1,44 @@
----
-import css from "../home.module.css";
----
-
-<div class={css["hero-text"]}>
+<div class="hero-text">
   <h2>Hi, I'm Athul</h2>
   <h1>From Pixels to Physics: Frontend, Games & Software Developer</h1>
 </div>
+
+<style>
+.hero-text {
+  max-width: fit-content;
+}
+.hero-text {
+  margin: 2rem;
+  /* order: -1; move text above the sphere */
+}
+
+h1 {
+  background: linear-gradient(to right, #ffffff, var(--lavender));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards 0.2s;
+}
+
+h2 {
+  color: var(--violet);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
