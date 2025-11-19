@@ -51,7 +51,7 @@ const displayIcons = [...icons];
     position: relative;
     display: flex;
     justify-content: center;
-    margin: 5rem 2rem;
+    margin: 5rem clamp(0.5rem, -2rem + 8.3333vw, 2rem);
   }
 
   .techstack-container {
@@ -61,17 +61,18 @@ const displayIcons = [...icons];
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 1em;
   }
 
   .tech-icon {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.8rem;
     padding: 12px 20px;
     background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px; /* Rounded pill shape */
+    border-radius: 50px;
     opacity: 0;
     transform: translateY(20px);
     transition:
@@ -93,15 +94,16 @@ const displayIcons = [...icons];
   }
 
   .tech-icon img {
-    width: 30px;
-    height: 30px;
+    width: 1.5em;
+    height: 1.5em;
     object-fit: contain;
   }
 
   .tech-name {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Elms Sans", sans-serif;
+    color: #white;
     white-space: nowrap;
   }
 </style>

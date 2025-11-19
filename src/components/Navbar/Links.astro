@@ -16,3 +16,44 @@
     <a href="/connect">Connect with Me</a>
   </li>
 </ul>
+
+<style>
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  li {
+    overflow: visible;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--colhex-4);
+    transition: width 0.3s ease-in-out;
+  }
+
+  a:hover {
+    color: var(--colhex-4);
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+</style>

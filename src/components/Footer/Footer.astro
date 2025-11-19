@@ -214,6 +214,11 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
     transform: translateY(-3px);
   }
 
+  .links :global(ul){
+    display: flex;
+    flex-direction:column;
+  }
+
   .links li {
     cursor: pointer;
   }
@@ -233,5 +238,6 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
     .footer-logo {
       --size: 6em;
     }
+
   }
 </style>
