@@ -1,6 +1,5 @@
 ---
 import { projects } from "../Projects/projectslist";
-import css from "./home.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -14,13 +13,13 @@ const selectedProjects = projects.filter((project) =>
 const githubIcon = icons.find((icon) => icon.name === "GitHub");
 ---
 
-<div class={css["home-slider"]}>
+<div class="home-slider"}>
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
       {
         selectedProjects.map((project) => (
           <div class="swiper-slide">
-            <div class={css["slider-container"]}>
+            <div class="slider-container">
               <img
                 src={project.image.src}
                 alt={project.title}
@@ -30,13 +29,13 @@ const githubIcon = icons.find((icon) => icon.name === "GitHub");
                   width: "100%",
                 }}
               />
-              <div class={css["slider-text"]}>
+              <div class="slider-text">
                 <h3>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class={css["h3-link"]}
+                    class="h3-link"}
                   >
                     {project.title}
                   </a>
@@ -47,7 +46,7 @@ const githubIcon = icons.find((icon) => icon.name === "GitHub");
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class={css["github-link"]}
+                    class="github-link"
                     aria-label="GitHub Link"
                   >
                     <div
@@ -120,3 +119,134 @@ const githubIcon = icons.find((icon) => icon.name === "GitHub");
     },
   });
 </script>
+
+
+<style>
+.home-slider :global(.swiper) {
+  --swiper-navigation-size: 4rem;
+  padding: 0 2rem;
+}
+
+/* Fallback for SSR/Hydration to prevent FOUC */
+.home-slider :global(.swiper-slide) {
+  width: 100%;
+  margin-right: 20px;
+}
+
+@media (min-width: 600px) {
+  .home-slider :global(.swiper-slide) {
+    width: calc((100% - 10px) / 2);
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-slider :global(.swiper-slide) {
+    width: calc((100% - 60px) / 3);
+    margin-right: 30px;
+  }
+}
+.slider-container {
+  transition: margin-top 0.3s ease-in-out;
+  height: clamp(25rem, 18.75rem + 16.6667vw, 30rem);
+  max-width: 70vw;
+  margin: auto;
+}
+.slider-container img {
+  border-radius: 10px;
+}
+.slider-container .slider-text {
+  position: relative;
+  top: -3.7em;
+  transition: top 0.2s ease-in-out;
+  color: white;
+  background-color: rgba(var(--color-2), 0.8);
+  backdrop-filter: blur(5px);
+  padding: 1.1em;
+  padding-top: 0.05em;
+  border-radius: 0 0 10px 10px;
+  /* box-shadow: -2px 2px 8px var(--colhex-5); */
+}
+.slider-container .slider-text h3 {
+  font-size: 1.25em;
+  font-family: "Elms Sans", sans-serif;
+}
+.slider-container .slider-text p,
+.slider-container .slider-text a {
+  font-size: 1em;
+  display: none;
+}
+
+.slider-container:hover,
+:global(.swiper-slide-active) .slider-container {
+  margin-top: 2rem;
+}
+
+.slider-container:hover img,
+:global(.swiper-slide-active) .slider-container img {
+  border-radius: 10px 10px 0 0;
+}
+.slider-container:hover .slider-text,
+:global(.swiper-slide-active) .slider-container .slider-text {
+  top: 0;
+}
+.slider-container:hover .slider-text p,
+.slider-container:hover .slider-text a,
+.home-slider :global(.swiper-slide-active) .slider-container .slider-text p,
+.home-slider :global(.swiper-slide-active) .slider-container .slider-text a {
+  display: block;
+}
+
+.slider-container .slider-text a {
+  cursor: pointer;
+}
+.slider-container .slider-text a:hover {
+  color: var(--colhex-4);
+}
+
+.slider-container .slider-text .h3-link {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+.slider-container .slider-text .h3-link:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/*  Slider Navigation  */
+.home-slider :global(.swiper-button-prev),
+.home-slider :global(.swiper-button-next) {
+  background-color: var(--colhex-4);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0 2rem;
+  box-shadow: -2px 2px 6px var(--colhex-5);
+  transition: transform 0.1s linear;
+}
+
+.home-slider :global(.swiper-button-prev):hover,
+.home-slider :global(.swiper-button-next):hover {
+  transform: scale(1.2);
+}
+.home-slider :global(.swiper-button-prev):active,
+.home-slider :global(.swiper-button-next):active {
+  transform: scale(1);
+}
+
+@media (max-width: 500px) {
+  .home-slider :global(.swiper-button-prev),
+  .home-slider :global(.swiper-button-next) {
+    margin: 0;
+  }
+}
+
+.home-slider :global(.swiper-pagination-bullet) {
+  background-color: white;
+}
+
+.home-slider :global(.swiper-pagination-bullet-active) {
+  background-color: var(--colhex-4);
+}
+</style>

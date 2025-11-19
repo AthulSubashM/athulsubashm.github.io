@@ -2,23 +2,24 @@
 @import "./theme.css";
 
 /* Fonts */
-/* @import url("https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;700&family=Karla:wght@0,400;0,600;800;1,200..800&family=Roboto+Slab:wght@100..900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;700&family=Karla:wght@0,400;0,600;800;1,200..800&family=Roboto+Slab:wght@100..900&display=swap");
 html {
   font-size: 16px;
 }
 
 h1,
 h2 {
-  color: white;
   font-family: "Roboto Slab", serif;
 }
 h1 {
   font-size: clamp(3.125rem, 2.5417rem + 1.2153vw, 4rem);
   font-weight: 400;
+  color: white;
 }
 h2 {
   font-size: clamp(2rem, 1.8333rem + 0.3472vw, 2.25rem);
-  font-weight: 300;
+  font-weight: 500;
+  color: var(--lavender);
 }
 p {
   color: white;
