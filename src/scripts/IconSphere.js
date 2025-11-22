@@ -5,8 +5,9 @@ export class IconSphere {
     this.container = container;
     this.icons = icons;
     this.scene = new THREE.Scene();
+    const fov = window.innerWidth < 768 ? 45 : 30;
     this.camera = new THREE.PerspectiveCamera(
-      30,
+      fov,
       container.clientWidth / container.clientHeight,
       0.1,
       1000
@@ -105,6 +106,7 @@ export class IconSphere {
     if (!this.container) return;
     this.camera.aspect =
       this.container.clientWidth / this.container.clientHeight;
+    this.camera.fov = window.innerWidth < 768 ? 40 : 30;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(
       this.container.clientWidth,

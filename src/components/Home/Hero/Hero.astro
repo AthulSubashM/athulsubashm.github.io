@@ -18,7 +18,7 @@ import HeroText from "./HeroText.astro";
   justify-items: center;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 2rem; /* spacing between items */
+  column-gap: 2rem;
   margin: 2rem;
   min-height: 80vh;
 }
@@ -31,7 +31,8 @@ import HeroText from "./HeroText.astro";
   .hero {
     grid-template-columns: 1fr;
     justify-items: center;
-    margin-left: 0;
+    margin: 0 2rem;
+    row-gap: 8rem;
     text-align: center;
   }
   .sphere {
