@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100vw; /* fixed size */
-  height: 100vh; /* stable height */
+  height: 100lvh; /* covers full screen including address bar area */
 }
 .star-twinkle {
   position: absolute;
