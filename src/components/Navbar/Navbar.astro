@@ -34,25 +34,27 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
 </nav>
 
 <script>
-  const hamburgerBtn = document.getElementById("hamburger-btn");
-  const linksContainer = document.getElementById("links-container");
-  let menuOpen = false;
+  document.addEventListener("astro:page-load", () => {
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const linksContainer = document.getElementById("links-container");
+    let menuOpen = false;
 
-  function toggleMenu() {
-    if (!linksContainer || !hamburgerBtn) return;
-    menuOpen = !menuOpen;
-    if (menuOpen) {
-      linksContainer.classList.add("open");
-      hamburgerBtn.classList.add("open");
-    } else {
-      linksContainer.classList.remove("open");
-      hamburgerBtn.classList.remove("open");
+    function toggleMenu() {
+      if (!linksContainer || !hamburgerBtn) return;
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        linksContainer.classList.add("open");
+        hamburgerBtn.classList.add("open");
+      } else {
+        linksContainer.classList.remove("open");
+        hamburgerBtn.classList.remove("open");
+      }
     }
-  }
 
-  if (hamburgerBtn) {
-    hamburgerBtn.addEventListener("click", toggleMenu);
-  }
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener("click", toggleMenu);
+    }
+  });
 </script>
 
 <style>
@@ -124,7 +126,8 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
       width: 100vw;
       background: linear-gradient(
         to bottom,
-        rgba(var(--color-2), 0.85), 40%,
+        rgba(var(--color-2), 0.85),
+        40%,
         rgba(var(--color-2), 1)
       );
       box-shadow: -2px 2px 5px 6px var(----colhex-5);
@@ -133,7 +136,7 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
       visibility: hidden;
       transition:
         transform 0.3s cubic-bezier(0.77, 0, 0.175, 1),
-visibility 0.3s;
+        visibility 0.3s;
     }
 
     .links.open {

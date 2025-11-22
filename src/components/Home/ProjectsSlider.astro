@@ -54,37 +54,39 @@ const selectedProjects = projects.filter((project) =>
   import Swiper from "swiper";
   import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-  new Swiper(".mySwiper", {
-    modules: [Navigation, Pagination, Autoplay],
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-        spaceBetween: 20,
+  document.addEventListener("astro:page-load", () => {
+    new Swiper(".mySwiper", {
+      modules: [Navigation, Pagination, Autoplay],
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
-      600: {
-        slidesPerView: 2,
-        spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
       },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30,
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        600: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
       },
-    },
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
+      loop: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+    });
   });
 </script>
 

@@ -4,10 +4,14 @@
   import { IconSphere } from "../../../scripts/IconSphere.js";
   import { icons } from "../../../scripts/icons.js";
 
-  const container = document.getElementById("icon-sphere-container");
-  if (container) {
-    new IconSphere(container, icons);
-  }
+  document.addEventListener("astro:page-load", () => {
+    const container = document.getElementById("icon-sphere-container");
+    if (container) {
+      // Clear previous content if any, though Astro usually handles DOM replacement.
+      // container.innerHTML = '';
+      new IconSphere(container, icons);
+    }
+  });
 </script>
 
 <style>

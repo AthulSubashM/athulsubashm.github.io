@@ -26,23 +26,25 @@ const displayIcons = [...icons];
 </section>
 
 <script>
-  const section = document.getElementById("techstack-section");
-  const icons = document.querySelectorAll(".tech-icon");
+  document.addEventListener("astro:page-load", () => {
+    const section = document.getElementById("techstack-section");
+    const icons = document.querySelectorAll(".tech-icon");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          icons.forEach((icon) => icon.classList.add("visible"));
-        } else {
-          icons.forEach((icon) => icon.classList.remove("visible"));
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            icons.forEach((icon) => icon.classList.add("visible"));
+          } else {
+            icons.forEach((icon) => icon.classList.remove("visible"));
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
-  if (section) observer.observe(section);
+    if (section) observer.observe(section);
+  });
 </script>
 
 <style>
@@ -77,7 +79,7 @@ const displayIcons = [...icons];
     transform: translateY(20px);
     transition:
       opacity 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-delay: var(--delay);
   }
 
