@@ -2,15 +2,15 @@
 
 Welcome to my personal portfolio website! This project showcases my skills, projects, and experience as a developer. It's built with modern web technologies to ensure performance, responsiveness, and a great user experience.
 
-## 🚀 Features
+## Features
 
 - **Interactive 3D Elements**: A dynamic 3D icon sphere in the hero section using Three.js.
 - **Project Showcase**: A slider and grid view to display my projects with details and links.
 - **Tech Stack Visualization**: A categorized display of my technical skills.
-- **Responsive Design**: Fully optimized for all device sizes.
+- **Responsive Design**: Fully optimized for all device sizes using grids, clamps and media queries 
 - **Glassmorphism UI**: A modern, sleek aesthetic with blurred backgrounds and subtle animations.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: [Astro](https://astro.build/)
 - **Styling**: CSS3 (Custom Properties, Flexbox, Grid)
@@ -18,7 +18,7 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 - **Icons**: [Simple Icons](https://simpleicons.org/)
 - **Deployment**: GitHub Pages
 
-## 📦 Getting Started
+## Getting Started
 
 To run this project locally, follow these steps:
 
@@ -46,11 +46,11 @@ To run this project locally, follow these steps:
     npm run build
     ```
 
-## 📊 Lighthouse Performance
+## Lighthouse Performance
 
 ![Lighthouse](public/lighthouse.png)
 
-## 📬 Connect
+## Connect
 
 Feel free to reach out to me!
 
