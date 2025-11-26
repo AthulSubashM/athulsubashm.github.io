@@ -1,5 +1,6 @@
 ---
 import { projects } from "../Projects/projectslist";
+import ProjectCard from "../Projects/ProjectCard.astro";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -12,36 +13,13 @@ const selectedProjects = projects.filter((project) =>
 
 <div class="home-slider" }>
   <div class="swiper mySwiper">
-      <h1>Projects</h1>
+    <h1>Projects</h1>
 
     <div class="swiper-wrapper">
       {
         selectedProjects.map((project) => (
           <div class="swiper-slide">
-            <div class="slider-container">
-              <img
-                src={project.image.src}
-                alt={project.title}
-                style={{
-                  aspectRatio: "16 / 9",
-                  objectFit: "cover",
-                  width: "100%",
-                }}
-              />
-              <div class="slider-text">
-                <h3>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.title}
-                    <span class="github-icon" />
-                  </a>
-                </h3>
-                <p>{project.description}</p>
-              </div>
-            </div>
+            <ProjectCard project={project} />
           </div>
         ))
       }
@@ -97,81 +75,10 @@ const selectedProjects = projects.filter((project) =>
     --swiper-navigation-size: 4rem;
     padding: 0 2rem;
   }
-
-  .slider-container {
-    transition: margin-top 0.3s ease-in-out;
-    height: clamp(20rem, -4.6154rem + 51.2821vw, 30rem);
-    max-width: 70vw;
-    margin: 4rem auto;
-  }
-  .swiper-slide-active .slider-container, .slider-container:hover {
-    margin-top: 2rem;
+  .swiper-wrapper{
+    margin-top: 4rem;
   }
 
-  img {
-    border-radius: 10px;
-  }
-  .slider-text {
-    position: relative;
-    top: -3.7em;
-    transition: top 0.2s ease-in-out;
-    color: white;
-    background-color: rgba(var(--color-2), 0.8);
-    backdrop-filter: blur(5px);
-    padding: 1.1em;
-    padding-top: 0.05em;
-    border-radius: 0 0 10px 10px;
-    /* box-shadow: -2px 2px 8px var(--colhex-5); */
-  }
-  h3 {
-    font-size: 1.25em;
-    font-family: "Elms Sans", sans-serif;
-  }
-  p,
-  a {
-    font-size: 1em;
-    display: none;
-  }
-
-  .slider-container:hover img,
-  :global(.swiper-slide-active) .slider-container img {
-    border-radius: 10px 10px 0 0;
-  }
-  .slider-container:hover .slider-text,
-  .swiper-slide-active .slider-container .slider-text {
-    top: 0;
-  }
-  .slider-container:hover .slider-text p,
-  .slider-container:hover .slider-text a,
-  .swiper-slide-active .slider-container .slider-text p,
-  .swiper-slide-active .slider-container .slider-text a {
-    display: flex;
-  }
-
-  a {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    color: white;
-  }
-  a:hover {
-    color: var(--colhex-4);
-    text-decoration: underline;
-  }
-
-  .github-icon {
-    width: 1em;
-    height: 1em;
-    background-color: white;
-    mask: url(https://cdn.simpleicons.org/github) no-repeat center / contain;
-    -webkit-mask: url(https://cdn.simpleicons.org/github) no-repeat center /
-      contain;
-  }
-
-  a:hover .github-icon {
-    background-color: var(--colhex-4);
-  }
   /*  Slider Navigation  */
   .swiper-button-prev,
   .swiper-button-next {

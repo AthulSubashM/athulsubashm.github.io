@@ -1,0 +1,121 @@
+---
+const { project, isExpanded = false } = Astro.props;
+---
+
+<div class:list={["project-card", { expanded: isExpanded }]}>
+  <img
+    src={project.image.src}
+    alt={project.title}
+    style={{
+      aspectRatio: "16 / 9",
+      objectFit: "cover",
+      width: "100%",
+    }}
+  />
+  <div class="card-text">
+    <h3>
+      <a href={project.github} target="_blank" rel="noopener noreferrer">
+        {project.title}
+        <span class="github-icon"></span>
+      </a>
+    </h3>
+    <p>{project.description}</p>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    transition: margin-top 0.3s ease-in-out;
+    height: clamp(20rem, -4.6154rem + 51.2821vw, 30rem);
+    max-width: 70vw;
+    margin: 0 auto; /* Margin handled by parent/layout usually, but keeping auto for centering */
+    position: relative;
+    overflow: hidden; /* Ensure content stays within bounds if needed */
+    border-radius: 10px;
+  }
+
+  /* Only apply margin animation if NOT expanded (i.e. in slider) */
+  :global(.swiper-slide-active) .project-card:not(.expanded),
+  .project-card:not(.expanded):hover {
+    margin-top: -2rem;
+  }
+
+  img {
+    border-radius: 10px;
+    display: block;
+  }
+
+  .card-text {
+    position: relative;
+    top: -3.7em;
+    transition: top 0.2s ease-in-out;
+    color: white;
+    background-color: rgba(var(--color-2), 0.8);
+    backdrop-filter: blur(5px);
+    padding: 1.1em;
+    padding-top: 0.05em;
+    border-radius: 0 0 10px 10px;
+  }
+
+  h3 {
+    font-size: 1.25em;
+    font-family: "Elms Sans", sans-serif;
+    margin: 0.5em 0;
+  }
+
+  p,
+  a {
+    font-size: 1em;
+    display: none; /* Hidden by default */
+  }
+
+  /* Expanded State Logic */
+  .project-card:hover img,
+  :global(.swiper-slide-active) .project-card img,
+  .project-card.expanded img {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .project-card:hover .card-text,
+  :global(.swiper-slide-active) .project-card .card-text,
+  .project-card.expanded .card-text {
+    top: 0;
+  }
+
+  .project-card:hover .card-text p,
+  .project-card:hover .card-text a,
+  :global(.swiper-slide-active) .project-card .card-text p,
+  :global(.swiper-slide-active) .project-card .card-text a,
+  .project-card.expanded .card-text p,
+  .project-card.expanded .card-text a {
+    display: flex;
+  }
+
+  a {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+  }
+
+  a:hover {
+    color: var(--colhex-4);
+    text-decoration: underline;
+  }
+
+  .github-icon {
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    mask: url(https://cdn.simpleicons.org/github) no-repeat center / contain;
+    -webkit-mask: url(https://cdn.simpleicons.org/github) no-repeat center /
+      contain;
+    display: inline-block;
+  }
+
+  a:hover .github-icon {
+    background-color: var(--colhex-4);
+  }
+</style>
