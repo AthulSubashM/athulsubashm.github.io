@@ -1,12 +1,80 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import WIPBanner from "../components/WIPBanner.astro";
+import SocialCard from "../components/Connect/SocialCard.astro";
+
+const socials = [
+  {
+    title: "Email",
+    href: "mailto:athul.m.subash@gmail.com",
+    icon: "email",
+    color: "#EA4335",
+  },
+  {
+    title: "GitHub",
+    href: "https://github.com/AthulSubashM",
+    icon: "github",
+    color: "#2C3036",
+  },
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/athulmsubash/",
+    icon: "linkedin",
+    color: "#0A66C2",
+  },
+  {
+    title: "Instagram",
+    href: "https://www.instagram.com/athulxo/",
+    icon: "instagram",
+    color: "#E4405F",
+  },
+  {
+    title: "Resume",
+    href: "https://drive.google.com/file/d/1ujLGRZ04npF4ZUVX_A2NhyWfD8V1pyLk/view?usp=sharing",
+    icon: "resume",
+    color: "#F6B704",
+  },
+];
 ---
 
 <Layout title="Connect | Athul Subash">
-  <WIPBanner />
-  <div style={{ padding: "2rem", color: "white" }}>
-    <h3>Hi</h3>
-    <p>I'm Athul</p>
+  <div class="connect-container">
+    <h1>Connect with me</h1>
+    <div class="social-grid">
+      {
+        socials.map((social) => (
+          <SocialCard
+            title={social.title}
+            href={social.href}
+            icon={social.icon}
+            color={social.color}
+          />
+        ))
+      }
+    </div>
   </div>
 </Layout>
+
+<style>
+  .connect-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    min-height: 60vh; /* Ensure it takes up some space */
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    width: 100%;
+  }
+</style>
