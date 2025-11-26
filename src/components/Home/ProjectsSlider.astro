@@ -12,6 +12,8 @@ const selectedProjects = projects.filter((project) =>
 
 <div class="home-slider" }>
   <div class="swiper mySwiper">
+      <h1>Projects</h1>
+
     <div class="swiper-wrapper">
       {
         selectedProjects.map((project) => (
@@ -102,6 +104,10 @@ const selectedProjects = projects.filter((project) =>
     max-width: 70vw;
     margin: 4rem auto;
   }
+  .swiper-slide-active .slider-container, .slider-container:hover {
+    margin-top: 2rem;
+  }
+
   img {
     border-radius: 10px;
   }
