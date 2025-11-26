@@ -1,0 +1,91 @@
+---
+const { title, href, icon, color } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class="social-card">
+  <div class="icon-container" style={`--hover-color: ${color}`}>
+    <div class:list={["icon", icon]}></div>
+  </div>
+  <span class="title">{title}</span>
+</a>
+
+<style>
+  .social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    text-decoration: none;
+    color: white;
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+    height: 100%;
+  }
+
+  .social-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .icon-container {
+    font-size: 3rem;
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  .social-card:hover .icon-container {
+    color: var(--hover-color);
+  }
+
+  .title {
+    font-family: "Elms Sans", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  .github {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/github");
+    mask-image: url("https://cdn.simpleicons.org/github");
+  }
+
+  .linkedin {
+    -webkit-mask-image: url("/icons/linkedin.svg");
+    mask-image: url("/icons/linkedin.svg");
+  }
+
+  .instagram {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/instagram");
+    mask-image: url("https://cdn.simpleicons.org/instagram");
+  }
+
+  .email {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/gmail");
+    mask-image: url("https://cdn.simpleicons.org/gmail");
+  }
+
+  .resume {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/googledrive");
+    mask-image: url("https://cdn.simpleicons.org/googledrive");
+  }
+</style>

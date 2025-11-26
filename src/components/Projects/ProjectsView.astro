@@ -1,85 +1,33 @@
 ---
 import { projects } from "./projectslist.js";
+import ProjectCard from "./ProjectCard.astro";
 ---
 
 <div class="projectsGrid">
   {
     projects.map((project) => (
-      <div class="projectCard">
-        <div class="projectImageContainer">
-          {project.image && (
-            <img
-              src={project.image.src}
-              alt={project.title}
-              class="projectImage"
-            />
-          )}
-          <div class="projectDetailsOverlay">
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            )}
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Live Demo
-              </a>
-            )}
-          </div>
-        </div>
+      <div class="project-wrapper">
+        <ProjectCard project={project} isExpanded={true} />
       </div>
     ))
   }
 </div>
 
-
 <style>
-.projectCard {
-  color: white;
-}
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
 
-.projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
-}
-h3 {
-}
+  .project-wrapper {
+    /* Ensure the card takes available space but respects its own internal sizing logic if needed */
+    width: 100%;
+  }
 
-.projectImage {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.projectImageContainer {
-  position: relative;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-.projectDetailsOverlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  color: black;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  backdrop-filter: blur(8px);
-}
+  /* Override ProjectCard height for grid if needed, or let it be. 
+   The slider card has a clamp height. In a grid, we might want a fixed aspect ratio or auto height?
+   For now, I'll let the component styling take precedence as requested "same styling".
+*/
 </style>

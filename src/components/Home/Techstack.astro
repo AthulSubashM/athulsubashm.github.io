@@ -1,24 +1,28 @@
 ---
-import { icons } from "../../scripts/icons.js";
-
-// Reverse icons to match original order logic if needed, or just use as is.
-// Original code reversed them: const reversedIcons = [...icons].reverse();
-const displayIcons = [...icons];
+import { techStack } from "../../scripts/icons.js";
 ---
 
 <section id="techstack-section">
-  <div class="techstack-container">
+  <div class="techstack-wrapper">
+      <h1>Tech Stack</h1>
     {
-      displayIcons.map((icon, i) => (
-        <div class="tech-icon" style={`--delay: ${i * 50}ms`}>
-          <img
-            src={icon.src}
-            alt={icon.name}
-            width="50"
-            height="50"
-            loading="lazy"
-          />
-          <span class="tech-name">{icon.name}</span>
+      techStack.map((category) => (
+        <div class="category-section">
+          <h2 class="category-title">{category.category}</h2>
+          <div class="techstack-container">
+            {category.icons.map((icon, i) => (
+              <div class="tech-icon" style={`--delay: ${i * 50}ms`}>
+                <img
+                  src={icon.src}
+                  alt={icon.name}
+                  width="50"
+                  height="50"
+                  loading="lazy"
+                />
+                <span class="tech-name">{icon.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       ))
     }
@@ -40,7 +44,7 @@ const displayIcons = [...icons];
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (section) observer.observe(section);
@@ -52,17 +56,42 @@ const displayIcons = [...icons];
     padding: 0;
     position: relative;
     display: flex;
-    justify-content: center;
-    margin: 5rem clamp(0.5rem, -2rem + 8.3333vw, 2rem);
+    justify-content: start;
+    margin: 5rem 2rem; 
+    margin-bottom: 10rem;
+  }
+
+  .techstack-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    align-items: start;
+  }
+
+  .category-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem;
+  }
+
+  .category-title {
+    font-family: "Elms Sans", sans-serif;
+    font-size: 1.8rem;
+    color: var(--lavender);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
   }
 
   .techstack-container {
     position: relative;
     width: 100%;
-    max-width: 1000px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     gap: 1em;
   }
 
@@ -106,4 +135,7 @@ const displayIcons = [...icons];
     color: white;
     white-space: nowrap;
   }
+  
+
+
 </style>

@@ -3,6 +3,8 @@ import hyprImg from "../../assets/projects/hyprland.webp";
 import ecoImg from "../../assets/projects/ecolens.webp";
 import shooterImg from "../../assets/projects/spaceshooter.webp";
 import blenderImg from "../../assets/projects/blender.webp";
+import cImg from "../../assets/projects/CImg.webp";
+import csharpImg from "../../assets/projects/csharpImg.webp";
 
 // List of Projects
 export const projects = [
@@ -45,11 +47,20 @@ export const projects = [
     image: blenderImg,
     github: "https://github.com/AthulSubashM/Blender-Portfolio",
   },
-  // {
-  //   id: 6,
-  //   title: "Project 6",
-  //   description: "Another React project",
-  //   image: "/images/project2.png",
-  //   github: "https://github.com/you/project2",
-  // },
+  {
+    id: 6,
+    title: "C Projects",
+    description:
+      "Number generators for random dice, normal and poisson distributions & scheduling simulators for FIFO, SJF, STCF and RR",
+    image: cImg,
+    github: "https://github.com/AthulSubashM/C-Projects",
+  },
+  {
+    id: 7,
+    title: "C# Projects",
+    description:
+      "Implementations of a Subway system, Perfect Maze, Point Quad Tree and KD Tree",
+    image: csharpImg,
+    github: "https://github.com/AthulSubashM/C-Sharp-Projects",
+  },
 ];
