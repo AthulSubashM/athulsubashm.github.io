@@ -1,29 +1,74 @@
 ---
-import { useState, useRef, onMount } from "astro/jsx-runtime";
-const [expanded, setExpanded] = useState(false);
-const contentRef = useRef(null);
 ---
 
-<div>
-  <button
-    id="read-more-btn"
-    onClick={() => {
-      setExpanded(!expanded);
-      if (contentRef.current) {
-        contentRef.current.style.maxHeight = !expanded
-          ? contentRef.current.scrollHeight + "px"
-          : "0";
-      }
-    }}
-  >
-    {expanded ? "Read Less" : "Read More"}
-  </button>
-
+<div class="read-more-container">
   <div
     class="more-content"
-    ref={contentRef}
-    style="overflow: hidden; max-height: 0; transition: max-height 0.3s ease;"
+    id="more-content"
   >
     <slot />
   </div>
+
+  <button id="read-more-btn">
+    Read More
+  </button>
 </div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const btn = document.getElementById("read-more-btn");
+    const content = document.getElementById("more-content");
+    let expanded = false;
+
+    if (btn && content) {
+      btn.addEventListener("click", () => {
+        expanded = !expanded;
+        if (expanded) {
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.classList.add("expanded");
+          btn.textContent = "Read Less";
+        } else {
+          content.style.maxHeight = "0";
+          content.classList.remove("expanded");
+          btn.textContent = "Read More";
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .read-more-container {
+    display: contents;
+  }
+
+  .more-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  .more-content.expanded {
+    opacity: 1;
+  }
+
+  #read-more-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--lavender);
+    font-family: "Elms Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 480px) {
+    #read-more-btn {
+      display: block;
+    }
+  }
+</style>
