@@ -1,0 +1,29 @@
+---
+import { useState, useRef, onMount } from "astro/jsx-runtime";
+const [expanded, setExpanded] = useState(false);
+const contentRef = useRef(null);
+---
+
+<div>
+  <button
+    id="read-more-btn"
+    onClick={() => {
+      setExpanded(!expanded);
+      if (contentRef.current) {
+        contentRef.current.style.maxHeight = !expanded
+          ? contentRef.current.scrollHeight + "px"
+          : "0";
+      }
+    }}
+  >
+    {expanded ? "Read Less" : "Read More"}
+  </button>
+
+  <div
+    class="more-content"
+    ref={contentRef}
+    style="overflow: hidden; max-height: 0; transition: max-height 0.3s ease;"
+  >
+    <slot />
+  </div>
+</div>
