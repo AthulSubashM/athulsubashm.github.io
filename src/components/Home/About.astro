@@ -1,54 +1,122 @@
-
 <div class="about-text">
   <h2>About Me</h2>
-  <p>I'm Athul Subash, a Computer Science graduate (2025) from Trent University, with a strong foundation in web development and a growing passion for system-level programming. 
-  I’ve worked extensively with React, Astro, Three.js, HTML, and CSS, and I enjoy building fast, clean, and reliable software that works seamlessly across platforms.</p>
-  <p>During my time at <a href="https://easyfits.ca">EasyFits</a> as a Software Developer, I contributed to several major engineering initiatives. 
-  I refactored the company’s React website, built a scalable virtual try-on system with cloth physics simulations, and developed scripts to optimize internal workflows. 
-  Over time, I also supervised other interns and helped maintain development standards across the team.</p>
-  <p>Although most of my professional experience is in web development, I’m actively exploring opportunities in software engineering, systems programming, and game development. 
+  <p>
+    I'm Athul Subash, a Computer Science graduate (2025) from Trent University,
+    with a strong foundation in web development and a growing passion for
+    system-level programming. I’ve worked extensively with React, Astro,
+    Three.js, HTML, and CSS, and I enjoy building fast, clean, and reliable
+    software that works seamlessly across platforms.
   </p>
+  <div class="more-content">
+    <p>
+      During my time at <a href="https://easyfits.ca">EasyFits</a> as a Software
+      Developer, I contributed to several major engineering initiatives. I refactored
+      the company’s React website, built a scalable virtual try-on system with cloth
+      physics simulations, and developed scripts to optimize internal workflows.
+      Over time, I also supervised other interns and helped maintain development
+      standards across the team.
+    </p>
+    <p>
+      Although most of my professional experience is in web development, I’m
+      actively exploring opportunities in software engineering, systems
+      programming, and game development.
+    </p>
+  </div>
+  <button id="read-more-btn">Read More</button>
 </div>
 
 <style>
-.about-text {
-  margin: 2rem auto;
-  padding: 3rem;
-  padding-bottom: 6rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-}
-
- h2 {
-  margin-bottom: 1rem;
-  margin-top: 0;
-  text-align: center;
-}
-
- p {
-  font-family: "Karla", sans-serif;
-  line-height: 1.5;
-  color: white;
-  text-align: justify;
-hyphens: auto; 
-hyphenate-limit-chars: 6 3 2;
- }
- @media (max-width: 1000px){
-   .about-text{
-   margin: 2rem;
-   max-width: none;
-   }
- }
- @media (max-width: 480px) {
-  .about-text{
-    margin: 2rem 1rem;
-    padding: 1rem;
-    padding-bottom: 3rem;
-
+  .about-text {
+    margin: 2rem auto;
+    padding: 3rem;
+    padding-bottom: 6rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
   }
- }
+
+  h2 {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  p {
+    font-family: "Karla", sans-serif;
+    line-height: 1.5;
+    color: white;
+    text-align: justify;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 2;
+  }
+
+  #read-more-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--lavender);
+    font-family: "Elms Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1000px) {
+    .about-text {
+      margin: 2rem;
+      max-width: none;
+    }
+  }
+  @media (max-width: 480px) {
+    .about-text {
+      margin: 2rem 1rem;
+      padding: 1rem;
+      padding-bottom: 3rem;
+    }
+
+    .more-content {
+      display: block; /* Changed from none to block for transition */
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.3s ease-out,
+        opacity 0.3s ease-out;
+    }
+
+    .more-content.expanded {
+      opacity: 1;
+      /* max-height will be set via JS */
+    }
+
+    #read-more-btn {
+      display: block;
+    }
+  }
 </style>
+
+<script>
+  const readMoreBtn = document.getElementById("read-more-btn");
+  const moreContent = document.querySelector(".more-content") as HTMLElement;
+
+  if (readMoreBtn && moreContent) {
+    readMoreBtn.addEventListener("click", () => {
+      const isExpanded = moreContent.classList.contains("expanded");
+
+      if (!isExpanded) {
+        moreContent.classList.add("expanded");
+        moreContent.style.maxHeight = moreContent.scrollHeight + "px";
+        readMoreBtn.textContent = "Read Less";
+      } else {
+        moreContent.classList.remove("expanded");
+        moreContent.style.maxHeight = "0";
+        readMoreBtn.textContent = "Read More";
+      }
+    });
+  }
+</script>

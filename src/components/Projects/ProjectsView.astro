@@ -17,6 +17,7 @@ import ProjectCard from "./ProjectCard.astro";
   .projectsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    margin: 0 8rem;
     gap: 2rem;
     padding: 2rem;
   }
@@ -28,4 +29,12 @@ import ProjectCard from "./ProjectCard.astro";
   .project-wrapper :global(.project-card) {
     height: auto;
   }
+  
+  @media (max-width:768px){
+    .projectsGrid{
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      margin: 0;
+    }
+  }
+
 </style>
