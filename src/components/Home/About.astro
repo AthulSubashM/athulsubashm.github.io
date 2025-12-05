@@ -1,3 +1,6 @@
+---
+import ReadMore from "./ReadMore.astro"; 
+---
 <div class="about-text">
   <h2>About Me</h2>
   <p>
@@ -7,7 +10,7 @@
     Three.js, HTML, and CSS, and I enjoy building fast, clean, and reliable
     software that works seamlessly across platforms.
   </p>
-  <div class="more-content">
+<ReadMore client:load>
     <p>
       During my time at <a href="https://easyfits.ca">EasyFits</a> as a Software
       Developer, I contributed to several major engineering initiatives. I refactored
@@ -21,8 +24,7 @@
       actively exploring opportunities in software engineering, systems
       programming, and game development.
     </p>
-  </div>
-  <button id="read-more-btn">Read More</button>
+</ReadMore>
 </div>
 
 <style>
@@ -99,28 +101,3 @@
     }
   }
 </style>
-
-<script type="module">
-  const init = () => {
-    const readMoreBtn = document.getElementById("read-more-btn");
-    const moreContent = document.querySelector(".more-content");
-    if (!readMoreBtn || !moreContent) return;
-
-    readMoreBtn.addEventListener("click", () => {
-      const isExpanded = moreContent.classList.contains("expanded");
-
-      if (!isExpanded) {
-        moreContent.classList.add("expanded");
-        moreContent.style.maxHeight = moreContent.scrollHeight + "px";
-        readMoreBtn.textContent = "Read Less";
-      } else {
-        moreContent.classList.remove("expanded");
-        moreContent.style.maxHeight = "0";
-        readMoreBtn.textContent = "Read More";
-      }
-    });
-  };
-
-  init(); // first load
-  document.addEventListener("astro:page-load", init); // every return to page
-</script>
