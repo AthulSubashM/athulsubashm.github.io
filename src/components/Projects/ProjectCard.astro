@@ -26,7 +26,7 @@ const { project, isExpanded = false } = Astro.props;
 <style>
   .project-card {
     transition: margin-top 0.3s ease-in-out;
-    height: clamp(20rem, -4.6154rem + 51.2821vw, 30rem);
+    height: 30rem;
     max-width: 70vw;
     margin: 0 auto; /* Margin handled by parent/layout usually, but keeping auto for centering */
     position: relative;
@@ -117,5 +117,11 @@ const { project, isExpanded = false } = Astro.props;
 
   a:hover .github-icon {
     background-color: var(--colhex-4);
+  }
+
+  @media (max-width: 480px){
+    .project-card {
+      height: 25rem;
+    }
   }
 </style>

@@ -50,10 +50,6 @@ const selectedProjects = projects.filter((project) =>
           slidesPerView: 1,
           spaceBetween: 20,
         },
-        600: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-        },
         768: {
           slidesPerView: 3,
           spaceBetween: 30,
@@ -71,11 +67,14 @@ const selectedProjects = projects.filter((project) =>
 </script>
 
 <style>
+  .home-slider {
+    margin: 0 8rem;
+  }
+
   .swiper {
     --swiper-navigation-size: 4rem;
-    padding: 0 2rem;
   }
-  .swiper-wrapper{
+  .swiper-wrapper {
     margin-top: 4rem;
   }
 
@@ -86,7 +85,7 @@ const selectedProjects = projects.filter((project) =>
     color: white;
     padding: 1rem;
     border-radius: 10px;
-    margin: 0 2rem;
+    margin: 0;
     box-shadow: -2px 2px 6px var(--colhex-5);
     transition: transform 0.1s linear;
   }
@@ -100,12 +99,7 @@ const selectedProjects = projects.filter((project) =>
     transform: scale(1);
   }
 
-  @media (max-width: 600px) {
-    .swiper-button-prev,
-    .swiper-button-next {
-      margin: 0;
-    }
-  }
+
 
   :global(.swiper-pagination-bullet) {
     background-color: white;
@@ -113,5 +107,14 @@ const selectedProjects = projects.filter((project) =>
 
   :global(.swiper-pagination-bullet-active) {
     background-color: var(--colhex-4);
+  }
+
+  @media (max-width: 768px) {
+    .home-slider {
+      margin: 0;
+    }
+    h1{
+      margin-left: 2rem;
+    }
   }
 </style>
