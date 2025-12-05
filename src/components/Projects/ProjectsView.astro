@@ -16,18 +16,16 @@ import ProjectCard from "./ProjectCard.astro";
 <style>
   .projectsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
     gap: 2rem;
     padding: 2rem;
   }
 
   .project-wrapper {
-    /* Ensure the card takes available space but respects its own internal sizing logic if needed */
     width: 100%;
   }
 
-  /* Override ProjectCard height for grid if needed, or let it be. 
-   The slider card has a clamp height. In a grid, we might want a fixed aspect ratio or auto height?
-   For now, I'll let the component styling take precedence as requested "same styling".
-*/
+  .project-wrapper :global(.project-card) {
+    height: auto;
+  }
 </style>
