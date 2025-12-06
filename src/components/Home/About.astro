@@ -1,16 +1,17 @@
 ---
-import ReadMore from "./ReadMore.astro"; 
+import ReadMore from "./ReadMore.astro";
 ---
+
 <div class="about-text">
   <h2>About Me</h2>
   <p>
     I'm Athul Subash, a Computer Science graduate (2025) from Trent University,
     with a strong foundation in web development and a growing passion for
-    system-level programming. I’ve worked extensively with React, Astro,
-    Three.js, HTML, and CSS, and I enjoy building fast, clean, and reliable
-    software that works seamlessly across platforms.
+    system-level programming. I’ve worked extensively with Javascript, CSS, C#
+    and C, and I enjoy building secure, fast and responsive software that works
+    seamlessly across platforms.
   </p>
-<ReadMore client:load>
+  <ReadMore>
     <p>
       During my time at <a href="https://easyfits.ca">EasyFits</a> as a Software
       Developer, I contributed to several major engineering initiatives. I refactored
@@ -24,7 +25,7 @@ import ReadMore from "./ReadMore.astro";
       actively exploring opportunities in software engineering, systems
       programming, and game development.
     </p>
-</ReadMore>
+  </ReadMore>
 </div>
 
 <style>
@@ -55,19 +56,6 @@ import ReadMore from "./ReadMore.astro";
     hyphenate-limit-chars: 6 3 2;
   }
 
-  #read-more-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--lavender);
-    font-family: "Elms Sans", sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-    padding: 0;
-    text-decoration: underline;
-  }
-
   @media (max-width: 1280px) {
     .about-text {
       margin: 2rem 6rem;
@@ -79,25 +67,6 @@ import ReadMore from "./ReadMore.astro";
       margin: 2rem 1rem;
       padding: 1rem;
       padding-bottom: 3rem;
-    }
-
-    .more-content {
-      display: block; /* Changed from none to block for transition */
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition:
-        max-height 0.3s ease-out,
-        opacity 0.3s ease-out;
-    }
-
-    .more-content.expanded {
-      opacity: 1;
-      /* max-height will be set via JS */
-    }
-
-    #read-more-btn {
-      display: block;
     }
   }
 </style>

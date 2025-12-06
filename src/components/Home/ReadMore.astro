@@ -1,29 +1,74 @@
 ---
-import { useState, useRef, onMount } from "astro/jsx-runtime";
-const [expanded, setExpanded] = useState(false);
-const contentRef = useRef(null);
+
 ---
 
-<div>
-  <button
-    id="read-more-btn"
-    onClick={() => {
-      setExpanded(!expanded);
-      if (contentRef.current) {
-        contentRef.current.style.maxHeight = !expanded
-          ? contentRef.current.scrollHeight + "px"
-          : "0";
-      }
-    }}
-  >
-    {expanded ? "Read Less" : "Read More"}
-  </button>
-
-  <div
-    class="more-content"
-    ref={contentRef}
-    style="overflow: hidden; max-height: 0; transition: max-height 0.3s ease;"
-  >
+<read-more-widget>
+  <div class="more-content">
     <slot />
   </div>
-</div>
+  <button class="read-more-btn">Read More</button>
+</read-more-widget>
+
+<style>
+  .read-more-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--lavender, #a8a8ff);
+    font-family: "Elms Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 480px) {
+    .read-more-btn {
+      display: block;
+    }
+
+    .more-content {
+      display: block;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.3s ease-out,
+        opacity 0.3s ease-out;
+    }
+
+    .more-content.expanded {
+      opacity: 1;
+      /* max-height set by JS */
+    }
+  }
+</style>
+
+<script>
+  class ReadMoreWidget extends HTMLElement {
+    constructor() {
+      super();
+      const btn = this.querySelector(".read-more-btn");
+      const content = this.querySelector(".more-content");
+
+      if (btn && content instanceof HTMLElement) {
+        btn.addEventListener("click", () => {
+          const isExpanded = content.classList.contains("expanded");
+
+          if (!isExpanded) {
+            content.classList.add("expanded");
+            content.style.maxHeight = content.scrollHeight + "px";
+            btn.textContent = "Read Less";
+          } else {
+            content.classList.remove("expanded");
+            content.style.maxHeight = "0";
+            btn.textContent = "Read More";
+          }
+        });
+      }
+    }
+  }
+
+  customElements.define("read-more-widget", ReadMoreWidget);
+</script>
