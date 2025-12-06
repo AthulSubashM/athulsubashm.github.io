@@ -21,11 +21,6 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
       </a>
       <ul class="socials">
         <li>
-          <a href="mailto:athul.m.subash@gmail.com" aria-label="Gmail">
-            <div class="icon gmail"></div>
-          </a>
-        </li>
-        <li>
           <a
             href="https://github.com/AthulSubashM"
             target="_blank"
@@ -35,6 +30,12 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
             <div class="icon github"></div>
           </a>
         </li>
+         <li>
+          <a href="mailto:athul.m.subash@gmail.com" aria-label="Gmail">
+            <div class="icon gmail"></div>
+          </a>
+        </li>
+
         <li>
           <a
             href="https://www.linkedin.com/in/athulmsubash/"
@@ -128,6 +129,8 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
     background-color: var(--colhex-2);
     color: var(--colhex-5);
     text-align: center;
+    font-family: "Elms Sans", sans-serif;
+    font-size: 0.85rem;
   }
 
   .contact {
@@ -137,7 +140,7 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
   }
 
   .email {
-    font-family: "Elms Sans";
+    font-family: "Elms Sans", sans-serif;
     font-size: clamp(1.5rem, 0.2692rem + 2.5641vw, 2rem);
     text-decoration: none;
     transition: color 0.3s ease;
