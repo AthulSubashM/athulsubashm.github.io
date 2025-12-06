@@ -7,7 +7,7 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
 ---
 
 <nav class="navbar" id="navbar">
-  <div class="navbar-logo">
+  <div class="navbar-logo" id="navbar-logo">
     <Rocket />
   </div>
   <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
@@ -37,6 +37,7 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
   document.addEventListener("astro:page-load", () => {
     const hamburgerBtn = document.getElementById("hamburger-btn");
     const linksContainer = document.getElementById("links-container");
+    const navbarLogo = document.getElementById("navbar-logo");
     let menuOpen = false;
 
     function toggleMenu() {
@@ -53,6 +54,12 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
 
     if (hamburgerBtn) {
       hamburgerBtn.addEventListener("click", toggleMenu);
+    }
+
+    if (navbarLogo) {
+      navbarLogo.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
   });
 </script>

@@ -5,15 +5,26 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
 
 <footer class="footer" id="footer">
   <div class="footer-grid">
-    <div class="footer-logo">
+    <div class="footer-logo" id="footer-logo">
       <Rocket />
     </div>
     <div class="links">
       <Links />
     </div>
     <div class="contact">
-        <a class="email" href="mailto:athul.m.subash@gmail.com" aria-label="Email"> athul.m.subash@gmail.com </a>
+      <a
+        class="email"
+        href="mailto:athul.m.subash@gmail.com"
+        aria-label="Email"
+      >
+        athul.m.subash@gmail.com
+      </a>
       <ul class="socials">
+        <li>
+          <a href="mailto:athul.m.subash@gmail.com" aria-label="Gmail">
+            <div class="icon gmail"></div>
+          </a>
+        </li>
         <li>
           <a
             href="https://github.com/AthulSubashM"
@@ -34,29 +45,34 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
             <div class="icon linkedin"></div>
           </a>
         </li>
-        <li>
-          <a
-            href="https://www.instagram.com/athulxo/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <div class="icon instagram"></div>
-          </a>
-        </li>
         <!-- <li> -->
-        <!--   <a href="mailto:athul.m.subash@gmail.com" aria-label="Email"> -->
-        <!--     <div class="icon email"></div> -->
+        <!--   <a -->
+        <!--     href="https://www.instagram.com/athulxo/" -->
+        <!--     target="_blank" -->
+        <!--     rel="noopener noreferrer" -->
+        <!--     aria-label="Instagram" -->
+        <!--   > -->
+        <!--     <div class="icon instagram"></div> -->
         <!--   </a> -->
         <!-- </li> -->
       </ul>
-      </div>
     </div>
   </div>
-  <div class="copyright">
-    © 2025 Athul Subash Marottikkal. All rights reserved.
-  </div>
 </footer>
+<div class="copyright">
+  © 2025 Athul Subash Marottikkal. All rights reserved.
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const footerLogo = document.getElementById("footer-logo");
+    if (footerLogo) {
+      footerLogo.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  });
+</script>
 
 <style>
   .footer {
@@ -91,15 +107,15 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
     mask-image: url("/icons/linkedin.svg");
   }
 
-  .instagram {
-    -webkit-mask-image: url("https://cdn.simpleicons.org/instagram");
-    mask-image: url("https://cdn.simpleicons.org/instagram");
-  }
-
-  /* .email { */
-  /*   -webkit-mask-image: url("https://cdn.simpleicons.org/gmail"); */
-  /*   mask-image: url("https://cdn.simpleicons.org/gmail"); */
+  /* .instagram { */
+  /*   -webkit-mask-image: url("https://cdn.simpleicons.org/instagram"); */
+  /*   mask-image: url("https://cdn.simpleicons.org/instagram"); */
   /* } */
+
+  .gmail {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/gmail");
+    mask-image: url("https://cdn.simpleicons.org/gmail");
+  }
 
   .footer-grid {
     min-height: 30vh;
@@ -114,24 +130,23 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
     text-align: center;
   }
 
-  .contact{
+  .contact {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .email{
+  .email {
     font-family: "Elms Sans";
-    font-size:clamp(1.5rem, 0.2692rem + 2.5641vw, 2rem);
+    font-size: clamp(1.5rem, 0.2692rem + 2.5641vw, 2rem);
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
     color: white;
   }
-  .email:hover{
+  .email:hover {
     color: var(--colhex-4);
   }
-
 
   .email::after {
     content: "";
@@ -145,10 +160,8 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
     transition: width 0.3s ease-in-out;
   }
 
-
-
   .email:hover::after {
-  width: 100%;
+    width: 100%;
   }
 
   .socials {
@@ -161,7 +174,7 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
     color: var(--colhex-4);
   }
 
-   .socials {
+  .socials {
     display: flex;
     gap: 1.5rem;
     padding: 0;
@@ -190,7 +203,6 @@ import Rocket from "../../assets/svg/Logo/rocket.astro";
   .links li {
     cursor: pointer;
   }
-
 
   .footer-logo {
     --size: 12em;
