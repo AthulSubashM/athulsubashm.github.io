@@ -1,6 +1,6 @@
 # Athul Subash - Portfolio
 
-Welcome to my personal portfolio website! This project showcases my skills, projects, and experience as a developer. It's built with modern web technologies to ensure performance, responsiveness, and a great user experience.
+Welcome to my blazingly fast portfolio website built with astro.js! This project showcases my skills, projects, and experience as a developer. It's built with modern web technologies to ensure performance, responsiveness, and a great user experience.
 
 ## Features
 

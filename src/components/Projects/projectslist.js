@@ -11,7 +11,7 @@ export const projects = [
   {
     id: 1,
     title: "My Portfolio",
-    description: "My portfolio built with React.js, vite and three.js",
+    description: "Blazingly fast portfolio website built with Astro.js, Vite and three.js",
     image: portImg,
     github: "https://github.com/AthulSubashM/athulsubashm.github.io",
   },
