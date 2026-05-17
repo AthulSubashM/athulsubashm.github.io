@@ -3,20 +3,31 @@ const { project, isExpanded = false } = Astro.props;
 ---
 
 <div class:list={["project-card", { expanded: isExpanded }]}>
-  <img
-    src={project.image.src}
-    alt={project.title}
-    style={{
-      aspectRatio: "16 / 9",
-      objectFit: "cover",
-      width: "100%",
-    }}
-  />
+  <a
+    class="image-link"
+    href={project.github || project.demo}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src={project.image.src}
+      alt={project.title}
+      style={{
+        aspectRatio: "16 / 9",
+        objectFit: "cover",
+        width: "100%",
+      }}
+    />
+  </a>
   <div class="card-text">
     <h3>
-      <a href={project.github} target="_blank" rel="noopener noreferrer">
+      <a
+        href={project.github || project.demo}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {project.title}
-        <span class="github-icon"></span>
+        <span class={project.github ? "github-icon" : "demo-icon"}></span>
       </a>
     </h3>
     <p>{project.description}</p>
@@ -69,6 +80,10 @@ const { project, isExpanded = false } = Astro.props;
     display: none; /* Hidden by default */
   }
 
+  .image-link {
+    display: block;
+  }
+
   /* Expanded State Logic */
   .project-card:hover img,
   :global(.swiper-slide-active) .project-card img,
@@ -115,11 +130,23 @@ const { project, isExpanded = false } = Astro.props;
     display: inline-block;
   }
 
-  a:hover .github-icon {
+  .demo-icon {
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+    display: inline-block;
+  }
+
+  a:hover .github-icon,
+  a:hover .demo-icon {
     background-color: var(--colhex-4);
   }
 
-  @media (max-width: 480px){
+  @media (max-width: 480px) {
     .project-card {
       height: 25rem;
     }

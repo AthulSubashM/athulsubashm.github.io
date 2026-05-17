@@ -5,13 +5,15 @@ import shooterImg from "../../assets/projects/spaceshooter.webp";
 import blenderImg from "../../assets/projects/blender.webp";
 import cImg from "../../assets/projects/CImg.webp";
 import csharpImg from "../../assets/projects/csharpImg.webp";
+import easyImg from "../../assets/projects/easyImg.webp";
 
 // List of Projects
 export const projects = [
   {
     id: 1,
     title: "My Portfolio",
-    description: "Blazingly fast portfolio website built with Astro.js, Vite and three.js",
+    description:
+      "Blazingly fast portfolio website built with Astro.js, Vite and three.js",
     image: portImg,
     github: "https://github.com/AthulSubashM/athulsubashm.github.io",
   },
@@ -49,6 +51,14 @@ export const projects = [
   },
   {
     id: 6,
+    title: "Easyfits",
+    description:
+      "A SaaS that integrates into retail stores, allowing users to virtually try on any piece of clothing before they buy it.",
+    image: easyImg,
+    demo: "https://easyfits.ca/",
+  },
+  {
+    id: 7,
     title: "C Projects",
     description:
       "Number generators for random dice, normal and poisson distributions & scheduling simulators for FIFO, SJF, STCF and RR",
@@ -56,7 +66,7 @@ export const projects = [
     github: "https://github.com/AthulSubashM/C-Projects",
   },
   {
-    id: 7,
+    id: 8,
     title: "C# Projects",
     description:
       "Implementations of a Subway system, Perfect Maze, Point Quad Tree and KD Tree",
